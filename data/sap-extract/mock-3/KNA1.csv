@@ -1,0 +1,413 @@
+KUNNR;NAME1;LAND1;STCEG;ORT01
+100001;Retailer R1;BE;BE0751812455;Westerdijk
+100002;Retailer R2;BE;BE0356722151;Wildeburg
+100003;Retailer R3;BE;BE0483407715;Oudemeers
+100004;Retailer R4;BE;BE0217996216;Westerdijk
+100005;Retailer R5;BE;BE0536270735;Wildeburg
+100006;Retailer R6;BE;BE0492855317;Hazegras
+100007;ZuidFoodservice Zandhoeke;NL;NL658912390B12;Oudemeers
+100008;Markt Horeca Ravelingen;NL;NL337984605B41;Lindhoven
+100009;LindeCatering Polderkant;FR;FR69972467376;Moerland
+100010;MarktGroothandel Zandhoeke;FR;FR41142339750;Westerdijk
+100011;ZuidCatering Moerland;FR;FR18688985886;Kerselaar
+100012;LindeHoreca Oudemeers;NL;NL918447338B30;Moerland
+100013;OostTraiteur Lindhoven;FR;FR51820005321;Hazegras
+100014;Midden Traiteur Wildeburg;NL;NL263195130B77;Kerselaar
+100015;Linde Delicatessen Brakveld;BE;BE0929071938;Ravelingen
+100016;Linde Distributie Brakveld;NL;NL412084841B27;Zandhoeke
+100017;MiddenDistributie Zandhoeke;BE;BE0640740428;Polderkant
+100018;WestTraiteur Zandhoeke;BE;BE0743057711;Polderkant
+100019;NoordHoreca Polderkant;BE;BE0935431079;Brakveld
+100020;OostDistributie Kerselaar;GB;GB189899368;Lindhoven
+100021;Zuid Groothandel Westerdijk;BE;BE0590149978;Zandhoeke
+100022;Linde Horeca Hazegras;BE;BE0262909590;Vrijbos
+100023;Midden Groothandel Hazegras;FR;FR70346884470;Vrijbos
+100024;LindeDelicatessen Lindhoven;NL;NL718539924B91;Moerland
+100025;Haven Foodservice Hazegras;FR;FR31869401175;Oudemeers
+100026;HavenVerswaren Hazegras;GB;GB566433565;Zandhoeke
+100027;NoordFoodservice Vrijbos;BE;BE0586592256;Moerland
+100028;GrootCatering Polderkant;NL;NL775921222B93;Zandhoeke
+100029;LindeVerswaren Wildeburg;FR;FR28862112502;Moerland
+100030;MiddenCatering Brakveld;BE;BE0634931712;Zandhoeke
+100031;KustFoodservice Zandhoeke;NL;NL935969977B56;Zandhoeke
+100032;ZuidDistributie Moerland;FR;FR39868936374;Hazegras
+100033;Groot Verswaren Wildeburg;NL;NL930805834B52;Polderkant
+100034;Linde Catering Lindhoven;FR;FR90278997154;Ravelingen
+100035;HavenFoodservice Zandhoeke;FR;FR55594584336;Hazegras
+100036;HavenTraiteur Brakveld;GB;GB489365052;Polderkant
+100037;Zuid Horeca Lindhoven;BE;BE0514339035;Westerdijk
+100038;Haven Foodservice Oudemeers;BE;BE0902416536;Ravelingen
+100039;GrootGroothandel Vrijbos;FR;FR76412205840;Kerselaar
+100040;MarktHoreca Polderkant;NL;NL917938123B07;Vrijbos
+100041;LindeDelicatessen Zandhoeke;DE;DE184814414;Oudemeers
+100042;MiddenCatering Zandhoeke;NL;NL953295735B38;Brakveld
+100043;MarktCatering Oudemeers;GB;GB406264211;Oudemeers
+100044;MiddenTraiteur Hazegras;BE;BE0652245519;Wildeburg
+100045;KustHoreca Polderkant;GB;GB477360026;Westerdijk
+100046;KustVerswaren Zandhoeke;BE;BE0741041495;Vrijbos
+100047;GrootDistributie Oudemeers;NL;NL269525239B13;Hazegras
+100048;HavenTraiteur Wildeburg;BE;BE0624091664;Wildeburg
+100049;NoordDelicatessen Westerdijk;BE;BE0710672577;Oudemeers
+100050;Groot Distributie Kerselaar;FR;FR41303013867;Lindhoven
+100051;OostFoodservice Lindhoven;GB;GB851082682;Vrijbos
+100052;NoordDelicatessen Polderkant;NL;NL692065944B42;Moerland
+100053;GrootCatering Brakveld;FR;FR49675778358;Lindhoven
+100054;LindeGroothandel Kerselaar;BE;BE0616395606;Vrijbos
+100055;OostHoreca Wildeburg;BE;BE0676600338;Ravelingen
+100056;OostCatering Brakveld;FR;FR21362295512;Brakveld
+100057;ZuidFoodservice Oudemeers;NL;NL592435062B07;Polderkant
+100058;Markt Distributie Lindhoven;FR;FR18666578186;Wildeburg
+100059;Zuid Foodservice Moerland;BE;BE0543515546;Wildeburg
+100060;Midden Groothandel Moerland;FR;FR44947984860;Lindhoven
+100061;Midden Traiteur Kerselaar;BE;BE0946993281;Westerdijk
+100062;Markt Verswaren Moerland;BE;BE0925780371;Polderkant
+100063;OostCatering Polderkant;NL;NL916860419B13;Hazegras
+100064;Groot Verswaren Kerselaar;BE;BE0776527560;Vrijbos
+100065;OostDelicatessen Polderkant;NL;NL604325283B15;Westerdijk
+100066;Markt Traiteur Zandhoeke;FR;FR95583897389;Ravelingen
+100067;ZuidCatering Polderkant;FR;FR34330965433;Kerselaar
+100068;MarktCatering Lindhoven;FR;FR76998630743;Polderkant
+100069;Groot Distributie Moerland;NL;NL427961313B40;Zandhoeke
+100070;Markt Delicatessen Westerdijk;BE;BE0698494525;Oudemeers
+100071;Linde Distributie Lindhoven;NL;NL877644556B11;Zandhoeke
+100072;MarktGroothandel Hazegras;BE;BE0579155524;Lindhoven
+100073;Groot Distributie Vrijbos;BE;BE0845021042;Wildeburg
+100074;KustVerswaren Westerdijk;BE;BE0538209052;Ravelingen
+100075;Noord Delicatessen Wildeburg;NL;NL888115505B31;Polderkant
+100076;Midden Horeca Zandhoeke;NL;NL466485753B79;Lindhoven
+100077;Kust Traiteur Wildeburg;BE;BE0986612437;Polderkant
+100078;GrootTraiteur Kerselaar;NL;NL167848616B48;Hazegras
+100079;LindeGroothandel Wildeburg;GB;GB864836787;Polderkant
+100080;Haven Distributie Zandhoeke;GB;GB511302561;Kerselaar
+100081;Linde Verswaren Vrijbos;NL;NL982533146B51;Lindhoven
+100082;Haven Delicatessen Ravelingen;FR;FR93971392992;Westerdijk
+100083;West Delicatessen Brakveld;NL;NL617643314B87;Ravelingen
+100084;Groot Verswaren Kerselaar;BE;BE0880407929;Lindhoven
+100085;WestHoreca Hazegras;NL;NL480756756B34;Lindhoven
+100086;ZuidDelicatessen Ravelingen;BE;BE0507177960;Kerselaar
+100087;WestGroothandel Moerland;FR;FR78690879188;Polderkant
+100088;Markt Verswaren Wildeburg;NL;NL107718299B09;Zandhoeke
+100089;Zuid Traiteur Vrijbos;GB;GB421713531;Zandhoeke
+100090;Markt Horeca Oudemeers;NL;NL575792922B55;Brakveld
+100091;WestDistributie Westerdijk;FR;FR82114457345;Hazegras
+100092;Kust Delicatessen Moerland;BE;BE0694564540;Brakveld
+100093;Markt Horeca Kerselaar;FR;FR55883700906;Vrijbos
+100094;MarktTraiteur Lindhoven;BE;BE0938916844;Polderkant
+100095;Kust Groothandel Moerland;BE;BE0305138343;Wildeburg
+100096;Zuid Horeca Polderkant;BE;BE0353580836;Zandhoeke
+100097;Haven Horeca Wildeburg;BE;BE0988316667;Moerland
+100098;Midden Catering Ravelingen;FR;FR94350524245;Oudemeers
+100099;Oost Traiteur Lindhoven;BE;BE0582748482;Kerselaar
+100100;MarktFoodservice Lindhoven;BE;BE0714218819;Kerselaar
+100101;Noord Traiteur Westerdijk;BE;BE0543380835;Ravelingen
+100102;Oost Horeca Zandhoeke;BE;BE0496230026;Brakveld
+100103;MiddenCatering Zandhoeke;NL;NL323503806B46;Vrijbos
+100104;West Delicatessen Zandhoeke;FR;FR70240190432;Kerselaar
+100105;Oost Horeca Hazegras;NL;NL305327561B11;Ravelingen
+100106;Markt Distributie Westerdijk;GB;GB509109943;Hazegras
+100107;WestHoreca Hazegras;BE;BE0215917149;Polderkant
+100108;Kust Catering Vrijbos;BE;BE0210091409;Westerdijk
+100109;NoordGroothandel Hazegras;NL;NL100924942B84;Ravelingen
+100110;Linde Verswaren Wildeburg;BE;BE0401239213;Vrijbos
+100111;ZuidVerswaren Hazegras;FR;FR33265128134;Moerland
+100112;KustDistributie Westerdijk;FR;FR41602360888;Moerland
+100113;Markt Horeca Brakveld;FR;FR42727802304;Vrijbos
+100114;Haven Foodservice Brakveld;FR;FR27698042044;Hazegras
+100115;Markt Distributie Polderkant;BE;BE0341878379;Moerland
+100116;Haven Horeca Hazegras;FR;FR81586961486;Brakveld
+100117;LindeGroothandel Brakveld;FR;FR50788651720;Lindhoven
+100118;ZuidHoreca Wildeburg;BE;BE0734649393;Polderkant
+100119;Linde Verswaren Wildeburg;BE;BE0613965062;Zandhoeke
+100120;West Delicatessen Brakveld;BE;BE0942937790;Oudemeers
+100121;KustHoreca Moerland;NL;NL788584830B68;Vrijbos
+100122;West Foodservice Polderkant;BE;BE0687206495;Brakveld
+100123;Linde Traiteur Hazegras;BE;BE0475898034;Hazegras
+100124;MiddenHoreca Brakveld;BE;BE0317396569;Moerland
+100125;GrootDelicatessen Oudemeers;NL;NL216514505B31;Wildeburg
+100126;WestFoodservice Oudemeers;BE;BE0362409816;Oudemeers
+100127;Zuid Distributie Westerdijk;BE;BE0285596308;Vrijbos
+100128;NoordTraiteur Oudemeers;NL;NL538088224B10;Wildeburg
+100129;Groot Horeca Kerselaar;BE;BE0476333445;Westerdijk
+100130;Linde Distributie Hazegras;BE;BE0903050303;Kerselaar
+100131;Linde Distributie Hazegras;FR;FR87569669929;Zandhoeke
+100132;HavenFoodservice Wildeburg;FR;FR64430240241;Moerland
+100133;ZuidFoodservice Kerselaar;NL;NL542217109B41;Hazegras
+100134;Groot Foodservice Oudemeers;NL;NL861537914B77;Vrijbos
+100135;Zuid Foodservice Vrijbos;FR;FR64119575967;Lindhoven
+100136;KustDistributie Kerselaar;BE;BE0868241852;Lindhoven
+100137;Kust Delicatessen Brakveld;FR;FR15456089405;Vrijbos
+100138;Linde Horeca Moerland;BE;BE0744985041;Kerselaar
+100139;Noord Foodservice Lindhoven;BE;BE0790271173;Kerselaar
+100140;ZuidVerswaren Polderkant;NL;NL691256180B45;Zandhoeke
+100141;HavenFoodservice Moerland;BE;BE0330989338;Lindhoven
+100142;GrootTraiteur Kerselaar;BE;BE0356878737;Lindhoven
+100143;NoordDistributie Hazegras;FR;FR76764700382;Vrijbos
+100144;Midden Foodservice Brakveld;BE;BE0534393190;Wildeburg
+100145;Zuid Foodservice Westerdijk;NL;NL624503648B36;Hazegras
+100146;HavenDelicatessen Zandhoeke;NL;NL594781282B27;Kerselaar
+100147;Kust Verswaren Westerdijk;FR;FR87649039902;Vrijbos
+100148;Haven Delicatessen Hazegras;BE;BE0483846787;Lindhoven
+100149;Midden Horeca Brakveld;BE;BE0629214749;Moerland
+100150;LindeDistributie Kerselaar;BE;BE0358238915;Wildeburg
+100151;Groot Groothandel Vrijbos;BE;BE0263124871;Hazegras
+100152;ZuidCatering Kerselaar;NL;NL614175341B37;Oudemeers
+100153;Midden Foodservice Westerdijk;BE;BE0436547015;Ravelingen
+100154;Markt Foodservice Brakveld;BE;BE0929196553;Lindhoven
+100155;GrootDistributie Hazegras;FR;FR43308630203;Kerselaar
+100156;ZuidDelicatessen Vrijbos;FR;FR89934348008;Moerland
+100157;OostTraiteur Zandhoeke;BE;BE0727845438;Kerselaar
+100158;LindeDelicatessen Vrijbos;BE;BE0306825747;Vrijbos
+100159;Groot Groothandel Zandhoeke;BE;BE0823156153;Wildeburg
+100160;Noord Verswaren Ravelingen;NL;NL155029091B44;Vrijbos
+100161;Groot Distributie Vrijbos;NL;NL549762034B29;Oudemeers
+100162;WestHoreca Hazegras;NL;NL688616780B33;Polderkant
+100163;MiddenFoodservice Wildeburg;NL;NL166364479B45;Wildeburg
+100164;HavenFoodservice Moerland;GB;GB560096008;Polderkant
+100165;MarktHoreca Polderkant;FR;FR32202639489;Wildeburg
+100166;WestHoreca Kerselaar;GB;GB766909463;Vrijbos
+100167;ZuidVerswaren Vrijbos;FR;FR67685718349;Zandhoeke
+100168;Oost Distributie Oudemeers;DE;DE461862375;Polderkant
+100169;Zuid Verswaren Vrijbos;NL;NL171933296B40;Brakveld
+100170;MarktTraiteur Westerdijk;BE;BE0319829883;Ravelingen
+100171;KustDistributie Moerland;BE;BE0202249354;Lindhoven
+100172;Markt Delicatessen Kerselaar;BE;BE0425172180;Ravelingen
+100173;MiddenVerswaren Ravelingen;NL;NL742067803B74;Vrijbos
+100174;GrootDistributie Polderkant;BE;BE0402347090;Hazegras
+100175;OostGroothandel Vrijbos;NL;NL779587637B21;Hazegras
+100176;Markt Foodservice Brakveld;BE;BE0712193893;Polderkant
+100177;KustCatering Zandhoeke;NL;NL743904189B90;Westerdijk
+100178;OostHoreca Zandhoeke;BE;BE0357548532;Hazegras
+100179;Groot Foodservice Ravelingen;FR;FR85248999838;Zandhoeke
+100180;West Traiteur Wildeburg;BE;BE0506062559;Polderkant
+100181;MiddenTraiteur Westerdijk;NL;NL153796091B20;Wildeburg
+100182;OostDistributie Westerdijk;FR;FR63155884231;Hazegras
+100183;Noord Horeca Westerdijk;BE;BE0769901272;Vrijbos
+100184;LindeFoodservice Ravelingen;BE;BE0885170134;Oudemeers
+100185;GrootCatering Oudemeers;NL;NL550374784B21;Vrijbos
+100186;MarktCatering Kerselaar;BE;BE0887682236;Hazegras
+100187;Groot Distributie Moerland;NL;NL462625844B90;Wildeburg
+100188;KustVerswaren Zandhoeke;BE;BE0279482239;Moerland
+100189;GrootGroothandel Brakveld;FR;FR18848851184;Zandhoeke
+100190;Noord Verswaren Wildeburg;NL;NL846592443B45;Hazegras
+100191;OostCatering Brakveld;BE;BE0690714630;Polderkant
+100192;ZuidDelicatessen Moerland;NL;NL655859182B61;Lindhoven
+100193;West Horeca Lindhoven;NL;NL551446884B43;Westerdijk
+100194;ZuidDelicatessen Brakveld;NL;NL321146710B10;Oudemeers
+100195;KustDelicatessen Westerdijk;FR;FR38189519390;Ravelingen
+100196;HavenCatering Brakveld;BE;BE0315727476;Oudemeers
+100197;WestVerswaren Brakveld;NL;NL204141828B53;Moerland
+100198;Groot Horeca Oudemeers;FR;FR56261378351;Oudemeers
+100199;LindeFoodservice Wildeburg;NL;NL266414910B45;Ravelingen
+100200;Oost Traiteur Hazegras;FR;FR64453234275;Zandhoeke
+100201;HavenVerswaren Brakveld;BE;BE0528684147;Hazegras
+100202;Midden Delicatessen Brakveld;NL;NL206461174B85;Hazegras
+100203;Markt Horeca Lindhoven;BE;BE0517844990;Hazegras
+100204;MarktVerswaren Zandhoeke;NL;NL242373737B33;Zandhoeke
+100205;Oost Delicatessen Westerdijk;BE;BE0541821115;Polderkant
+100206;ZuidGroothandel Westerdijk;GB;GB794785194;Vrijbos
+100207;LindeCatering Hazegras;BE;BE0881783250;Vrijbos
+100208;Zuid Groothandel Hazegras;BE;BE0581204895;Zandhoeke
+100209;Haven Verswaren Wildeburg;NL;NL588931223B07;Westerdijk
+100210;Linde Distributie Moerland;NL;NL940482409B42;Zandhoeke
+100211;Markt Traiteur Lindhoven;BE;BE0299933896;Moerland
+100212;HavenVerswaren Vrijbos;GB;GB759102144;Hazegras
+100213;NoordDistributie Kerselaar;BE;BE0657971586;Lindhoven
+100214;WestDelicatessen Brakveld;BE;BE0666459086;Lindhoven
+100215;Haven Delicatessen Brakveld;FR;FR72247228552;Zandhoeke
+100216;Noord Verswaren Zandhoeke;FR;FR47798682247;Hazegras
+100217;Zuid Distributie Ravelingen;FR;FR87747760164;Ravelingen
+100218;Midden Groothandel Brakveld;NL;NL644374354B04;Zandhoeke
+100219;Groot Verswaren Lindhoven;BE;BE0544902547;Westerdijk
+100220;Oost Distributie Zandhoeke;NL;NL806444920B95;Ravelingen
+100221;Markt Catering Oudemeers;BE;BE0883900622;Brakveld
+100222;HavenCatering Brakveld;NL;NL883757029B55;Moerland
+100223;Groot Distributie Polderkant;BE;BE0745071945;Westerdijk
+100224;Linde Delicatessen Brakveld;FR;FR49284176525;Polderkant
+100225;Haven Groothandel Brakveld;NL;NL700105675B65;Kerselaar
+100226;Oost Foodservice Hazegras;FR;FR91157660139;Wildeburg
+100227;OostVerswaren Brakveld;FR;FR92338293003;Ravelingen
+100228;Oost Distributie Ravelingen;BE;BE0994042340;Oudemeers
+100229;WestDistributie Kerselaar;BE;BE0944539082;Westerdijk
+100230;MarktTraiteur Moerland;BE;BE0944655185;Moerland
+100231;WestHoreca Zandhoeke;NL;NL532890320B22;Vrijbos
+100232;ZuidCatering Ravelingen;DE;DE628822905;Hazegras
+100233;OostTraiteur Lindhoven;BE;BE0801830209;Wildeburg
+100234;West Horeca Westerdijk;FR;FR28603956786;Lindhoven
+100235;Midden Traiteur Hazegras;BE;BE0658652170;Wildeburg
+100236;OostCatering Brakveld;BE;BE0278769684;Zandhoeke
+100237;Oost Foodservice Moerland;BE;BE0663068244;Kerselaar
+100238;Midden Distributie Zandhoeke;BE;BE0589559565;Westerdijk
+100239;Zuid Delicatessen Hazegras;FR;FR82741072285;Polderkant
+100240;GrootDelicatessen Moerland;FR;FR51832747236;Westerdijk
+100241;Midden Foodservice Vrijbos;FR;FR70624069350;Ravelingen
+100242;NoordVerswaren Hazegras;BE;BE0526577267;Moerland
+100243;KustDelicatessen Westerdijk;NL;NL332636189B88;Lindhoven
+100244;MiddenDelicatessen Oudemeers;NL;NL359016704B81;Lindhoven
+100245;West Delicatessen Lindhoven;BE;BE0470250555;Ravelingen
+100246;OostGroothandel Kerselaar;NL;NL962897988B69;Kerselaar
+100247;NoordCatering Ravelingen;NL;NL665765408B14;Hazegras
+100248;Kust Distributie Hazegras;BE;BE0608543653;Kerselaar
+100249;WestDistributie Lindhoven;FR;FR74259185427;Zandhoeke
+100250;WestHoreca Brakveld;BE;BE0383650440;Zandhoeke
+100251;MiddenVerswaren Hazegras;BE;BE0936936064;Brakveld
+100252;WestHoreca Kerselaar;FR;FR71425350589;Moerland
+100253;MiddenDistributie Kerselaar;BE;BE0327687774;Lindhoven
+100254;Midden Traiteur Moerland;BE;BE0567146429;Westerdijk
+100255;LindeGroothandel Moerland;NL;NL792912524B99;Westerdijk
+100256;Groot Horeca Kerselaar;BE;BE0213993678;Kerselaar
+100257;Midden Delicatessen Westerdijk;BE;BE0275976678;Kerselaar
+100258;MarktVerswaren Zandhoeke;FR;FR47656406187;Zandhoeke
+100259;Groot Horeca Polderkant;FR;FR46873015503;Wildeburg
+100260;Groot Groothandel Wildeburg;BE;BE0874073928;Vrijbos
+100261;Linde Verswaren Westerdijk;NL;NL631177457B34;Brakveld
+100262;KustFoodservice Zandhoeke;BE;BE0211777724;Zandhoeke
+100263;Haven Delicatessen Lindhoven;NL;NL106677404B96;Hazegras
+100264;OostTraiteur Wildeburg;DE;DE179227857;Brakveld
+100265;Groot Delicatessen Vrijbos;FR;FR58284511248;Ravelingen
+100266;NoordHoreca Brakveld;BE;BE0811624338;Moerland
+100267;Zuid Traiteur Oudemeers;FR;FR67135592944;Brakveld
+100268;West Catering Zandhoeke;BE;BE0314460241;Wildeburg
+100269;Kust Groothandel Kerselaar;FR;FR36936426606;Vrijbos
+100270;MiddenDelicatessen Polderkant;BE;BE0850207176;Westerdijk
+100271;KustVerswaren Moerland;FR;FR78424015847;Wildeburg
+100272;HavenCatering Lindhoven;BE;BE0912101193;Ravelingen
+100273;Kust Verswaren Moerland;FR;FR73402196066;Westerdijk
+100274;Markt Foodservice Kerselaar;FR;FR28962292354;Moerland
+100275;MiddenDelicatessen Zandhoeke;GB;GB840707070;Zandhoeke
+100276;Noord Verswaren Ravelingen;GB;GB712573473;Kerselaar
+100277;MarktDelicatessen Oudemeers;BE;BE0546380709;Westerdijk
+100278;LindeFoodservice Wildeburg;BE;BE0755417687;Westerdijk
+100279;Oost Horeca Ravelingen;FR;FR57384389446;Vrijbos
+100280;KustTraiteur Wildeburg;NL;NL545926798B73;Hazegras
+100281;Oost Horeca Lindhoven;NL;NL474582976B88;Lindhoven
+100282;LindeGroothandel Vrijbos;BE;BE0787516670;Lindhoven
+100283;Groot Distributie Westerdijk;BE;BE0260845173;Moerland
+100284;MarktHoreca Ravelingen;BE;BE0962644430;Zandhoeke
+100285;Oost Delicatessen Moerland;BE;BE0773522738;Polderkant
+100286;WestTraiteur Brakveld;GB;GB721745660;Lindhoven
+100287;Zuid Horeca Lindhoven;BE;BE0351906003;Westerdijk
+100288;WestDelicatessen Westerdijk;DE;DE366160114;Hazegras
+100289;MarktDistributie Zandhoeke;BE;BE0619772689;Brakveld
+100290;OostHoreca Wildeburg;NL;NL207010317B38;Kerselaar
+100291;KustCatering Lindhoven;BE;BE0327341148;Oudemeers
+100292;Zuid Horeca Wildeburg;BE;BE0359272360;Lindhoven
+100293;Zuid Foodservice Brakveld;BE;BE0235132453;Brakveld
+100294;KustTraiteur Westerdijk;NL;NL645535336B04;Hazegras
+100295;Groot Foodservice Westerdijk;BE;BE0819054142;Oudemeers
+100296;MarktGroothandel Kerselaar;BE;BE0955084269;Brakveld
+100297;Noord Verswaren Polderkant;FR;FR20532019645;Zandhoeke
+100298;Linde Groothandel Vrijbos;BE;BE0969544395;Lindhoven
+100299;GrootDistributie Zandhoeke;BE;BE0763155616;Vrijbos
+100300;Kust Delicatessen Westerdijk;BE;BE0921998262;Wildeburg
+100301;OostVerswaren Westerdijk;NL;NL113533641B26;Kerselaar
+100302;HavenGroothandel Brakveld;FR;FR26974110881;Lindhoven
+100303;WestTraiteur Lindhoven;FR;FR66616429740;Hazegras
+100304;Haven Horeca Hazegras;NL;NL568257480B08;Polderkant
+100305;LindeVerswaren Wildeburg;GB;GB897848087;Hazegras
+100306;West Horeca Zandhoeke;BE;BE0527511437;Polderkant
+100307;WestTraiteur Vrijbos;BE;BE0502922828;Zandhoeke
+100308;Zuid Delicatessen Ravelingen;NL;NL525381752B28;Moerland
+100309;NoordTraiteur Moerland;FR;FR77589729321;Westerdijk
+100310;Midden Groothandel Vrijbos;BE;BE0577124561;Kerselaar
+100311;Markt Verswaren Oudemeers;FR;FR50121850031;Wildeburg
+100312;Kust Foodservice Moerland;DE;DE257148843;Zandhoeke
+100313;Haven Catering Ravelingen;NL;NL961981171B85;Oudemeers
+100314;LindeCatering Oudemeers;NL;NL936445169B31;Ravelingen
+100315;Midden Groothandel Moerland;FR;FR12665382192;Wildeburg
+100316;WestTraiteur Vrijbos;NL;NL718355812B76;Oudemeers
+100317;Noord Catering Oudemeers;NL;NL930221298B51;Lindhoven
+100318;KustTraiteur Hazegras;NL;NL302722759B62;Brakveld
+100319;West Delicatessen Wildeburg;BE;BE0997119913;Kerselaar
+100320;ZuidTraiteur Brakveld;BE;BE0373114062;Kerselaar
+100321;LindeFoodservice Westerdijk;NL;NL651100422B66;Kerselaar
+100322;Kust Catering Brakveld;NL;NL963163705B47;Westerdijk
+100323;Noord Groothandel Kerselaar;NL;NL590414202B71;Moerland
+100324;Midden Foodservice Moerland;BE;BE0938228936;Brakveld
+100325;Kust Delicatessen Westerdijk;NL;NL120460732B93;Vrijbos
+100326;ZuidFoodservice Kerselaar;NL;NL793401123B70;Brakveld
+100327;Kust Verswaren Lindhoven;GB;GB848269579;Lindhoven
+100328;Zuid Distributie Brakveld;NL;NL911470337B29;Oudemeers
+100329;Midden Distributie Zandhoeke;NL;NL884629741B66;Lindhoven
+100330;Haven Horeca Brakveld;FR;FR35451078942;Hazegras
+100331;Zuid Verswaren Westerdijk;BE;BE0626628809;Westerdijk
+100332;GrootVerswaren Ravelingen;GB;GB157970012;Wildeburg
+100333;GrootDelicatessen Polderkant;GB;GB314836180;Westerdijk
+100334;Midden Delicatessen Lindhoven;BE;BE0629749734;Brakveld
+100335;Noord Groothandel Ravelingen;BE;BE0516995350;Oudemeers
+100336;WestDistributie Ravelingen;BE;BE0282234663;Moerland
+100337;WestDistributie Polderkant;BE;BE0747370152;Westerdijk
+100338;GrootVerswaren Brakveld;NL;NL994066817B57;Brakveld
+100339;West Distributie Vrijbos;BE;BE0831673941;Brakveld
+100340;GrootGroothandel Vrijbos;BE;BE0684357962;Wildeburg
+100341;Linde Traiteur Ravelingen;NL;NL663984528B24;Polderkant
+100342;MarktCatering Wildeburg;FR;FR49375144812;Vrijbos
+100343;MarktTraiteur Zandhoeke;NL;NL118604278B72;Moerland
+100344;MiddenFoodservice Kerselaar;BE;BE0539608426;Kerselaar
+100345;OostGroothandel Polderkant;BE;BE0973766172;Polderkant
+100346;LindeDelicatessen Ravelingen;GB;GB165940448;Westerdijk
+100347;Oost Catering Kerselaar;FR;FR43640557286;Polderkant
+100348;LindeTraiteur Polderkant;BE;BE0489923244;Ravelingen
+100349;Oost Delicatessen Wildeburg;BE;BE0220458135;Westerdijk
+100350;OostDelicatessen Oudemeers;FR;FR54598011768;Brakveld
+100351;MarktTraiteur Moerland;NL;NL347265103B48;Ravelingen
+100352;OostHoreca Moerland;BE;BE0733707010;Wildeburg
+100353;Markt Horeca Zandhoeke;BE;BE0496904076;Kerselaar
+100354;Zuid Traiteur Moerland;NL;NL642246425B36;Westerdijk
+100355;Groot Groothandel Brakveld;BE;BE0500411023;Zandhoeke
+100356;MiddenTraiteur Oudemeers;FR;FR46155003606;Ravelingen
+100357;Kust Catering Moerland;BE;BE0372083783;Oudemeers
+100358;Noord Traiteur Polderkant;BE;BE0940245942;Kerselaar
+100359;OostDistributie Kerselaar;BE;BE0756648005;Westerdijk
+100360;KustGroothandel Vrijbos;BE;BE0726800016;Westerdijk
+100361;Midden Verswaren Zandhoeke;BE;BE0586867420;Westerdijk
+100362;OostVerswaren Ravelingen;FR;FR79164012051;Kerselaar
+100363;Zuid Delicatessen Hazegras;FR;FR93105180996;Zandhoeke
+100364;HavenDelicatessen Westerdijk;GB;GB293247458;Brakveld
+100365;Oost Traiteur Westerdijk;FR;FR23937538130;Westerdijk
+100366;GrootHoreca Lindhoven;BE;BE0505435524;Brakveld
+100367;Groot Foodservice Lindhoven;BE;BE0442975739;Hazegras
+100368;GrootTraiteur Brakveld;FR;FR80944024477;Brakveld
+100369;Oost Foodservice Polderkant;BE;BE0367403633;Ravelingen
+100370;Groot Verswaren Zandhoeke;NL;NL644494601B96;Westerdijk
+100371;Haven Delicatessen Zandhoeke;FR;FR23808370618;Lindhoven
+100372;Groot Horeca Oudemeers;BE;BE0328239684;Zandhoeke
+100373;OostCatering Hazegras;FR;FR91879953314;Lindhoven
+100374;WestCatering Hazegras;BE;BE0575680647;Wildeburg
+100375;Kust Foodservice Zandhoeke;BE;BE0445522087;Kerselaar
+100376;MiddenTraiteur Zandhoeke;NL;NL775508893B51;Oudemeers
+100377;KustTraiteur Brakveld;BE;BE0234576583;Lindhoven
+100378;Haven Verswaren Kerselaar;NL;NL863698279B25;Vrijbos
+100379;Oost Distributie Hazegras;FR;FR91255714441;Zandhoeke
+100380;NoordTraiteur Kerselaar;BE;BE0210846524;Lindhoven
+100381;MarktDelicatessen Westerdijk;FR;FR32787567689;Brakveld
+100382;NoordFoodservice Westerdijk;BE;BE0918231197;Ravelingen
+100383;WestTraiteur Polderkant;BE;BE0715821101;Hazegras
+100384;Midden Verswaren Ravelingen;BE;BE0990423250;Lindhoven
+100385;Groot Groothandel Hazegras;BE;BE0675651421;Oudemeers
+100386;Haven Groothandel Ravelingen;BE;BE0410732345;Zandhoeke
+100387;NoordHoreca Ravelingen;NL;NL107694688B06;Zandhoeke
+100388;GrootGroothandel Kerselaar;BE;BE0734318803;Vrijbos
+100389;WestDistributie Kerselaar;GB;GB564561087;Ravelingen
+100390;Oost Groothandel Vrijbos;NL;NL451103838B56;Westerdijk
+100391;Groot Verswaren Ravelingen;FR;FR39697141009;Zandhoeke
+100392;LindeTraiteur Vrijbos;FR;FR90319439577;Zandhoeke
+100393;Groot Distributie Hazegras;NL;NL538132349B30;Zandhoeke
+100394;GrootDistributie Brakveld;NL;NL143726263B18;Hazegras
+100395;Oost Groothandel Polderkant;BE;BE0878624614;Brakveld
+100396;Oost Horeca Wildeburg;BE;BE0602414639;Wildeburg
+100397;GrootHoreca Zandhoeke;FR;FR11874092600;Westerdijk
+100398;WestHoreca Lindhoven;BE;BE0202596574;Lindhoven
+100399;Noord Verswaren Zandhoeke;BE;BE0316475069;Oudemeers
+100400;Oost Traiteur Wildeburg;BE;BE0430082063;Zandhoeke
+100401;KustHoreca Vrijbos;BE;BE0663393094;Vrijbos
+100402;Zuid Groothandel Polderkant;NL;NL185639573B33;Polderkant
+100403;WestTraiteur Oudemeers;BE;BE0508933858;Westerdijk
+100404;LindeVerswaren Brakveld;GB;GB910055683;Wildeburg
+100405;Zuid Delicatessen Zandhoeke;NL;NL884793144B32;Kerselaar
+100406;Markt Traiteur Polderkant;FR;FR97343204293;Ravelingen
+100407;KustCatering Polderkant;BE;BE0840561814;Hazegras
+100408;Markt Traiteur Polderkant;BE;BE0592611008;Ravelingen
+100409;WestFoodservice Wildeburg;BE;BE0816535112;Moerland
+100410;ZuidFoodservice Oudemeers;BE;BE0232346870;Polderkant
+100411;West Distributie Ravelingen;BE;BE0360015104;Brakveld
+100412;Kust Traiteur Kerselaar;BE;BE0915688215;Zandhoeke

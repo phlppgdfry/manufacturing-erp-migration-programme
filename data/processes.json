@@ -1,0 +1,128 @@
+{
+  "_uitleg": "Procesdefinities waaruit scripts/build.py geldige BPMN 2.0 (met diagram) en SVG maakt. col = kolom, row = -1/0/1 binnen de lane. badge = nummer van een pijnpunt (as-is) of een wijziging (to-be).",
+  "processes": [
+    {
+      "id": "asis-order-to-delivery",
+      "name": "As-is: order tot levering (SAP + Excel + papier)",
+      "kind": "asis",
+      "lanes": [
+        ["RET", "Retailer / EDI-provider"],
+        ["KD", "Klantendienst"],
+        ["PLAN", "Planning"],
+        ["PROD", "Productie"],
+        ["QA", "QA"],
+        ["MAG", "Magazijn"]
+      ],
+      "nodes": [
+        ["s1", "startMessage", "RET", 0, "EDI-order"],
+        ["t1", "serviceTask", "KD", 1, "IDoc maakt verkooporder in SAP"],
+        ["g1", "xor", "KD", 2, "Order correct?"],
+        ["t2", "userTask", "KD", 3, "Order manueel corrigeren", -1, "1"],
+        ["g2", "xor", "KD", 4, ""],
+        ["t3", "userTask", "PLAN", 5, "Orders overtikken in Excel-planbord", 0, "2"],
+        ["t4", "userTask", "PLAN", 6, "Weekplanning in Excel (11 u)", 0, "2"],
+        ["t5", "userTask", "PLAN", 7, "Productieorders aanmaken in SAP"],
+        ["t6", "manualTask", "PROD", 8, "Produceren, lots op papieren batchrecord", 0, "3"],
+        ["t7", "userTask", "PROD", 9, "Output terugmelden in SAP (einde ploeg)"],
+        ["t8", "manualTask", "QA", 10, "Labo-analyse, resultaat in Excel", 0, "4"],
+        ["t9", "manualTask", "QA", 11, "Vrijgave per mail aan magazijn", 0, "4"],
+        ["t10", "manualTask", "MAG", 12, "Picken op papieren lijst, lot naar keuze", 0, "5"],
+        ["t11", "serviceTask", "MAG", 13, "Label + leverbericht via nachtelijk bestand"],
+        ["t12", "serviceTask", "KD", 14, "Factuur via EDI of PDF"],
+        ["e1", "end", "KD", 15, "Gefactureerd"]
+      ],
+      "flows": [
+        ["s1", "t1", ""], ["t1", "g1", ""], ["g1", "t2", "nee (7,5%)"], ["g1", "g2", "ja"], ["t2", "g2", ""],
+        ["g2", "t3", ""], ["t3", "t4", ""], ["t4", "t5", ""], ["t5", "t6", ""], ["t6", "t7", ""], ["t7", "t8", ""],
+        ["t8", "t9", ""], ["t9", "t10", ""], ["t10", "t11", ""], ["t11", "t12", ""], ["t12", "e1", ""]
+      ],
+      "notes": [
+        ["1", "7,5% van de EDI-orders wordt manueel gecorrigeerd (eenheid, prijs, artikelcode)."],
+        ["2", "De planner tikt orders over in een Excel-planbord; MRP in SAP wordt niet gebruikt. Eén persoon kent de formules."],
+        ["3", "Lotkoppeling grondstof → eindproduct staat alleen op papier: een recall betekent dossiers doorbladeren (±3u40)."],
+        ["4", "QA-vrijgave via Excel en mail: het systeem weet niet of een lot vrij is."],
+        ["5", "Geen FEFO en geen controle op minimale resterende houdbaarheid per retailer: retours en boetes."]
+      ]
+    },
+    {
+      "id": "tobe-order-to-delivery",
+      "name": "To-be: order tot levering in Business Central",
+      "kind": "tobe",
+      "lanes": [
+        ["RET", "Retailer / EDI-provider"],
+        ["KD", "Klantendienst"],
+        ["PLAN", "Planning"],
+        ["PROD", "Productie"],
+        ["QA", "QA"],
+        ["MAG", "Magazijn"]
+      ],
+      "nodes": [
+        ["s1", "startMessage", "RET", 0, "EDI-order"],
+        ["t1", "serviceTask", "KD", 1, "EDI-connector maakt verkooporder", 0, "A"],
+        ["g1", "xor", "KD", 2, "Validatie ok?"],
+        ["t2", "userTask", "KD", 3, "Uitzondering behandelen in werklijst", -1],
+        ["g2", "xor", "KD", 4, ""],
+        ["t3", "serviceTask", "PLAN", 5, "Planningsvoorstel berekent behoefte", 0, "B"],
+        ["t4", "userTask", "PLAN", 6, "Planner controleert capaciteit en keurt goed", 0, "B"],
+        ["t5", "userTask", "PROD", 7, "Grondstoflots scannen bij verbruik", 0, "C"],
+        ["t6", "serviceTask", "PROD", 8, "Output: lot + vervaldatum automatisch", 0, "C"],
+        ["t7", "serviceTask", "QA", 9, "Nieuw lot geblokkeerd", 0, "D"],
+        ["t8", "userTask", "QA", 10, "Labo-analyse en vrijgave lot"],
+        ["g3", "xor", "QA", 11, "Conform?"],
+        ["e2", "endError", "QA", 12, "Lot blijft geblokkeerd", 1],
+        ["t9", "userTask", "MAG", 12, "Picken met scanner volgens FEFO", 0, "E"],
+        ["t10", "serviceTask", "MAG", 13, "Controle resterende houdbaarheid (VK-05)", 0, "E"],
+        ["g4", "xor", "MAG", 14, "Voldoet?"],
+        ["t11", "serviceTask", "MAG", 15, "SSCC-label + leverbericht"],
+        ["t12", "serviceTask", "KD", 16, "Factuur via Peppol of EDI"],
+        ["e1", "end", "KD", 17, "Gefactureerd"]
+      ],
+      "flows": [
+        ["s1", "t1", ""], ["t1", "g1", ""], ["g1", "t2", "nee"], ["g1", "g2", "ja"], ["t2", "g2", ""],
+        ["g2", "t3", ""], ["t3", "t4", ""], ["t4", "t5", ""], ["t5", "t6", ""], ["t6", "t7", ""], ["t7", "t8", ""],
+        ["t8", "g3", ""], ["g3", "e2", "nee"], ["g3", "t9", "ja"], ["t9", "t10", ""], ["t10", "g4", ""],
+        ["g4", "t9", "nee: ander lot"], ["g4", "t11", "ja"], ["t11", "t12", ""], ["t12", "e1", ""]
+      ],
+      "notes": [
+        ["A", "Mapping per retailer bij de EDI-provider + connector-app (VK-01); alleen uitzonderingen komen bij een mens."],
+        ["B", "Planningsvoorstel (MRP) vervangt het Excel-planbord (PR-03); Power BI toont de capaciteit per lijn."],
+        ["C", "Lot en vervaldatum worden bij de output berekend uit productiedatum en houdbaarheid (PR-05)."],
+        ["D", "Elk nieuw lot is geblokkeerd tot QA het vrijgeeft (KW-01, ADR-005)."],
+        ["E", "FEFO-picking (KW-04) en controle op minimale resterende houdbaarheid per klant (VK-05, extensie)."]
+      ]
+    },
+    {
+      "id": "tobe-mock-recall",
+      "name": "To-be: recall van een grondstoflot",
+      "kind": "tobe",
+      "lanes": [
+        ["QA", "QA-manager"],
+        ["BC", "Business Central"],
+        ["ARCH", "SAP-archief"],
+        ["KD", "Klantendienst"],
+        ["DIR", "Directie"]
+      ],
+      "nodes": [
+        ["s1", "startMessage", "QA", 0, "Melding leverancier: lot verdacht"],
+        ["t1", "userTask", "QA", 1, "Leverancierslot → intern lotnummer"],
+        ["t2", "serviceTask", "BC", 2, "Artikeltracering voorwaarts"],
+        ["g1", "xor", "BC", 3, "Productie vóór go-live?"],
+        ["t3", "userTask", "ARCH", 4, "Genealogie opzoeken in het archief", 0, "F"],
+        ["g2", "xor", "BC", 5, ""],
+        ["t4", "userTask", "QA", 6, "Afgeleide lots in voorraad blokkeren"],
+        ["t5", "serviceTask", "KD", 7, "Leveringen per klant opvragen"],
+        ["g3", "xor", "DIR", 8, "Product op de markt en risico?"],
+        ["t6", "userTask", "DIR", 9, "Retailers en FAVV informeren", -1],
+        ["e1", "end", "DIR", 10, "Recall gestart", -1],
+        ["e2", "end", "QA", 10, "Afgesloten met rapport"]
+      ],
+      "flows": [
+        ["s1", "t1", ""], ["t1", "t2", ""], ["t2", "g1", ""], ["g1", "t3", "ja"], ["g1", "g2", "nee"], ["t3", "g2", ""],
+        ["g2", "t4", ""], ["t4", "t5", ""], ["t5", "g3", ""], ["g3", "t6", "ja"], ["g3", "e2", "nee"], ["t6", "e1", ""]
+      ],
+      "notes": [
+        ["F", "SAP-historiek is niet gemigreerd (ADR-003). Omdat lotnummers ongewijzigd blijven (ADR-008), loopt de tracering van Business Central naadloos verder in het archief."]
+      ]
+    }
+  ]
+}

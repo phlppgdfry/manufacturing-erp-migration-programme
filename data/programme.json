@@ -1,0 +1,345 @@
+{
+  "meta": {
+    "title": "Van SAP naar Business Central bij een voedingsproducent",
+    "subtitle": "Een ERP-migratieprogramma geleid vanuit de klant: partnerkeuze, fit-gap, datamigratie, test, go/no-go en uitrol",
+    "disclaimer": "Onafhankelijke portfoliocase over een fictieve organisatie (Vaerdal Foods). Bevat geen vertrouwelijke informatie van een echte werkgever, klant of leverancier. Alle cijfers zijn illustratieve aannames, geen echte bedrijfsgegevens.",
+    "author": "Philippe Godfroy",
+    "calendar": "Weken tellen vanaf de start van het programma (W1 = eerste week van september). Datums zonder jaartal: het programma is fictief."
+  },
+  "org": {
+    "name": "Vaerdal Foods NV",
+    "founded": 1961,
+    "employees": 185,
+    "revenueM": 74,
+    "erpUsers": 58,
+    "products": "gekoelde sauzen, dressings en soepen, grotendeels private label voor supermarkten",
+    "markets": [
+      { "country": "België", "share": 45 },
+      { "country": "Nederland", "share": 25 },
+      { "country": "Frankrijk", "share": 22 },
+      { "country": "VK en overige", "share": 8 }
+    ],
+    "sites": [
+      { "id": "HAL1", "name": "Hal 1 — soepen (hot-fill)", "lines": 3 },
+      { "id": "HAL2", "name": "Hal 2 — sauzen en dressings (cold-fill)", "lines": 4 },
+      { "id": "MAG", "name": "Magazijn grondstoffen en verpakking", "lines": 0 },
+      { "id": "KOEL", "name": "Extern koelhuis (3PL) voor eindproducten", "lines": 0 }
+    ],
+    "seasons": [
+      { "name": "Soepseizoen", "months": "oktober – februari", "note": "hoogste volume Hal 1" },
+      { "name": "BBQ- en saladeseizoen", "months": "april – augustus", "note": "hoogste volume Hal 2, voorraadopbouw vanaf april" }
+    ],
+    "landscapeAsIs": [
+      { "system": "SAP ECC 6.0 (sinds 2009)", "use": "financiën, verkoop, aankoop, voorraad, kostprijs; productieorders alleen voor terugmelding", "owner": "IT Manager", "issue": "146 eigen Z-objecten; één ABAP-freelancer, één dag per week; hosting bij een externe partij" },
+      { "system": "Excel-planbord", "use": "weekplanning van zeven lijnen", "owner": "Hoofd planning", "issue": "één persoon kent de formules; MRP in SAP wordt niet gebruikt" },
+      { "system": "Papieren batchrecords", "use": "CCP-registraties, lotkoppeling grondstof → eindproduct", "owner": "QA-manager", "issue": "traceren = dossiers doorbladeren" },
+      { "system": "EDI-provider (VAN)", "use": "orders, leverberichten en facturen van zes retailers via IDocs", "owner": "Klantendienst", "issue": "7,5% van de orders wordt manueel gecorrigeerd" },
+      { "system": "Labelsoftware", "use": "GS1-128-paletlabels via bestandsuitwisseling", "owner": "Magazijn", "issue": "gekoppeld aan SAP via een nachtelijk bestand" },
+      { "system": "Labo-Excel", "use": "QA-resultaten per lot", "owner": "QA-manager", "issue": "geen koppeling met lotblokkering" },
+      { "system": "Power BI", "use": "14 rapporten op SAP-extracten", "owner": "Controller", "issue": "extracten handmatig ververst" }
+    ],
+    "trigger": "Het standaardonderhoud van SAP ECC 6.0 loopt eind 2027 af; verlengd onderhoud tot 2030 kost extra en bevriest de functionaliteit. Het hostingcontract loopt in hetzelfde jaar af. Een offerte voor S/4HANA lag ver boven wat een bedrijf van deze omvang wil uitgeven. De raad van bestuur koos in het voorjaar voor Microsoft Dynamics 365 Business Central en keurde een programmabudget goed. Daarna werd een IT-projectmanager aangeworven om het programma te leiden."
+  },
+  "role": {
+    "title": "IT-projectmanager / business analist (klantzijde)",
+    "reportsTo": "IT Manager",
+    "summary": "Ik leid het programma namens Vaerdal: ik kies mee de implementatiepartner, bewaak planning, budget en kwaliteit van partner en leveranciers, vertaal processen naar een oplossing in Business Central, organiseer workshops en testen met finance en productie, en bereid de go/no-go voor waarover de stuurgroep beslist.",
+    "notMine": "Configureren en bouwen doet de partner. Beslissen over budget, scope en go-live doet de stuurgroep. Procesbeslissingen nemen de proceseigenaars."
+  },
+  "stakeholders": [
+    { "id": "CEO", "role": "CEO (voorzitter stuurgroep)", "interest": "continuïteit van leveringen aan retailers, geen verrassingen in het budget", "influence": "hoog", "impact": "laag", "stance": "steunt", "engage": "stuurgroep elke vier weken, één pagina status" },
+    { "id": "CFO", "role": "CFO (sponsor)", "interest": "snellere maandafsluiting, kostprijs per product, controle op betalingen", "influence": "hoog", "impact": "hoog", "stance": "steunt", "engage": "sponsor; wekelijks 30 minuten; eigenaar finance-processen" },
+    { "id": "COO", "role": "Plantmanager / COO", "interest": "de lijnen mogen niet stilvallen, zeker niet in het soepseizoen", "influence": "hoog", "impact": "hoog", "stance": "afwachtend", "engage": "eigenaar productieprocessen; vrijmaken key users onderhandelen per fase" },
+    { "id": "ITM", "role": "IT Manager", "interest": "een beheersbaar landschap na SAP, minder afhankelijkheid van één freelancer", "influence": "hoog", "impact": "hoog", "stance": "steunt", "engage": "leidinggevende; dagelijks" },
+    { "id": "PLAN", "role": "Hoofd planning", "interest": "het Excel-planbord werkt al 22 jaar en is snel", "influence": "midden", "impact": "hoog", "stance": "weerstand", "engage": "key user planning; zelf het planningsvoorstel laten testen op een echte week" },
+    { "id": "QA", "role": "QA-manager", "interest": "traceerbaarheid en de BRCGS-audit in mei", "influence": "midden", "impact": "hoog", "stance": "steunt", "engage": "eigenaar traceerbaarheid en lotvrijgave; tekent de mock recall af" },
+    { "id": "WH", "role": "Magazijnverantwoordelijke", "interest": "scannen in plaats van papieren picklijsten", "influence": "laag", "impact": "hoog", "stance": "steunt", "engage": "key user magazijn" },
+    { "id": "CS", "role": "Teamleider klantendienst", "interest": "minder manuele EDI-correcties", "influence": "midden", "impact": "hoog", "stance": "steunt", "engage": "key user verkoop en EDI" },
+    { "id": "CTRL", "role": "Controller", "interest": "kostprijs en marge per retailer; Power BI blijft werken", "influence": "midden", "impact": "hoog", "stance": "afwachtend", "engage": "key user kostprijs en rapportering" },
+    { "id": "OPS", "role": "Operatoren en lijnverantwoordelijken (±60)", "interest": "geen extra tijd aan de lijn", "influence": "laag", "impact": "midden", "stance": "afwachtend", "engage": "korte taakgerichte opleiding per lijn, door de key users" },
+    { "id": "PARTNER", "role": "Implementatiepartner (engagement manager)", "interest": "scope binnen de vaste prijs, tijdige beslissingen van de klant", "influence": "midden", "impact": "midden", "stance": "steunt", "engage": "wekelijks projectoverleg; maandelijks contractoverleg" }
+  ],
+  "partners": {
+    "criteria": [
+      { "id": "C1", "name": "Referenties in voedingsproductie", "weight": 20, "how": "twee referentiebezoeken; vragen naar traceerbaarheid en lotbeheer" },
+      { "id": "C2", "name": "Aanpak: standaard eerst, methode", "weight": 15, "how": "hoe gaan ze om met 146 Z-objecten? Antwoord op de vraag ‘welke maatwerkwensen zou u afraden?’" },
+      { "id": "C3", "name": "Benoemd team", "weight": 15, "how": "cv's, beschikbaarheid in uren per week, Nederlandstalig, wie blijft na go-live" },
+      { "id": "C4", "name": "Demo op ons script", "weight": 20, "how": "zelfde script voor elke partner: order → planning → productie met lot → QA-vrijgave → levering → recall" },
+      { "id": "C5", "name": "Aanpak datamigratie uit SAP", "weight": 10, "how": "ervaring met SAP-extracten, aantal proefmigraties, wie doet de afstemming" },
+      { "id": "C6", "name": "Prijs en kosten over drie jaar", "weight": 15, "how": "implementatie + licenties + apps + support, op dezelfde scope genormaliseerd" },
+      { "id": "C7", "name": "Ondersteuning na go-live", "weight": 5, "how": "hypercare, SLA, wie neemt de telefoon op" }
+    ],
+    "candidates": [
+      { "id": "P-A", "name": "Partner A", "profile": "regionale Business Central-partner, 40 consultants, sterk in productie", "offerImplementation": 476000, "tco3y": 612000, "scores": { "C1": 4, "C2": 4, "C3": 4, "C4": 4, "C5": 3, "C6": 3, "C7": 4 } },
+      { "id": "P-B", "name": "Partner B", "profile": "grote Dynamics-partner met een eigen app voor de voedingssector", "offerImplementation": 558000, "tco3y": 724000, "scores": { "C1": 5, "C2": 3, "C3": 3, "C4": 4, "C5": 4, "C6": 2, "C7": 3 } },
+      { "id": "P-C", "name": "Partner C", "profile": "laagste prijs, deel van het team offshore", "offerImplementation": 371000, "tco3y": 498000, "scores": { "C1": 2, "C2": 3, "C3": 2, "C4": 3, "C5": 3, "C6": 5, "C7": 2 } }
+    ],
+    "chosen": "P-A",
+    "negotiated": [
+      "Vaste prijs voor de kernscope (€412.000), betaald per mijlpaal na aftekening van vooraf afgesproken acceptatiecriteria.",
+      "Datamigratie in regie met een plafond van €64.000 en een wekelijks verbruiksoverzicht.",
+      "10% van elke mijlpaalfactuur wordt ingehouden tot het einde van de hypercare.",
+      "De lead consultant en de migratieconsultant staan bij naam in het contract; vervanging alleen met akkoord van Vaerdal.",
+      "Wijzigingen via een change request met impactanalyse binnen vijf werkdagen; niets wordt gebouwd zonder getekende CR."
+    ]
+  },
+  "requirements": [
+    { "id": "FIN-01", "domain": "Financiën", "text": "Grootboek op het Belgische rekeningstelsel met dimensies kostenplaats, productlijn en klantkanaal", "moscow": "Must", "class": "Configuratie", "solution": "Rekeningschema + 3 globale dimensies", "days": 3, "owner": "CFO", "tests": ["UAT-11"] },
+    { "id": "FIN-02", "domain": "Financiën", "text": "Btw voor België, Nederland en Frankrijk inclusief intracommunautaire leveringen en de Belgische btw-aangifte", "moscow": "Must", "class": "Standaard", "solution": "Belgische lokalisatie, btw-boekingsinstellingen", "days": 2, "owner": "CFO", "tests": ["UAT-11"] },
+    { "id": "FIN-03", "domain": "Financiën", "text": "Peppol-e-facturatie voor Belgische B2B-klanten", "moscow": "Must", "class": "Configuratie", "solution": "E-documenten + Peppol-access point", "days": 3, "owner": "CFO", "tests": ["UAT-08"] },
+    { "id": "FIN-04", "domain": "Financiën", "text": "CODA-bankafschriften inlezen en SEPA-betalingen aanmaken", "moscow": "Must", "class": "Standaard", "solution": "Belgische lokalisatie (CODA, SEPA)", "days": 1.5, "owner": "CFO", "tests": ["UAT-12"] },
+    { "id": "FIN-05", "domain": "Financiën", "text": "Intrastat-aangifte", "moscow": "Must", "class": "Standaard", "solution": "Intrastat-rapportering", "days": 1, "owner": "CFO", "tests": ["UAT-13"] },
+    { "id": "FIN-06", "domain": "Financiën", "text": "Vaste activa met lineaire afschrijving", "moscow": "Must", "class": "Standaard", "solution": "Vaste activa", "days": 1.5, "owner": "CFO", "tests": ["UAT-13"] },
+    { "id": "FIN-07", "domain": "Financiën", "text": "Maandafsluiting in vijf werkdagen in plaats van negen", "moscow": "Should", "class": "Procesaanpassing", "solution": "Afsluitkalender, terugkerende dagboeken, voorraadwaardering dagelijks", "days": 2, "owner": "CFO", "tests": ["UAT-14"] },
+    { "id": "FIN-08", "domain": "Financiën", "text": "Standaardkostprijs per eindproduct met afwijkingsanalyse per productieorder", "moscow": "Must", "class": "Standaard", "solution": "Kostprijsmethode Standaard, kostprijsberekening uit stuklijst en routing", "days": 4, "owner": "Controller", "tests": ["UAT-06"] },
+    { "id": "FIN-09", "domain": "Financiën", "text": "Marge per retailer en per productlijn", "moscow": "Should", "class": "Configuratie", "solution": "Dimensies + Power BI-rapport", "days": 3, "owner": "Controller", "tests": ["UAT-14"] },
+    { "id": "VK-01", "domain": "Verkoop", "text": "EDI-orders van zes retailers komen automatisch binnen als verkooporder", "moscow": "Must", "class": "ISV-app", "solution": "EDI-connector-app + mapping per retailer bij de EDI-provider", "days": 6, "owner": "Teamleider klantendienst", "tests": ["UAT-01"] },
+    { "id": "VK-02", "domain": "Verkoop", "text": "Leverbericht (DESADV) met SSCC per pallet", "moscow": "Must", "class": "ISV-app", "solution": "EDI-connector + labelsoftware", "days": 5, "owner": "Teamleider klantendienst", "tests": ["UAT-07"] },
+    { "id": "VK-03", "domain": "Verkoop", "text": "EDI-factuur (INVOIC) voor retailers die geen Peppol gebruiken", "moscow": "Must", "class": "ISV-app", "solution": "EDI-connector", "days": 2, "owner": "Teamleider klantendienst", "tests": ["UAT-08"] },
+    { "id": "VK-04", "domain": "Verkoop", "text": "Prijsafspraken per retailer en promotiekortingen per periode", "moscow": "Must", "class": "Standaard", "solution": "Prijslijsten met start- en einddatum", "days": 3, "owner": "Commercieel directeur", "tests": ["UAT-01"] },
+    { "id": "VK-05", "domain": "Verkoop", "text": "Minimale resterende houdbaarheid per klant bewaken bij picking (bv. twee derde van de houdbaarheid)", "moscow": "Must", "class": "Extensie", "solution": "Kleine extensie: controle bij toewijzen van lots aan een verkooporder", "days": 5, "owner": "QA-manager", "tests": ["UAT-04"] },
+    { "id": "VK-06", "domain": "Verkoop", "text": "Kredietlimiet en orderblokkering", "moscow": "Must", "class": "Standaard", "solution": "Kredietlimietcontrole", "days": 0.5, "owner": "CFO", "tests": ["UAT-01"] },
+    { "id": "VK-07", "domain": "Verkoop", "text": "Retouren met lotregistratie", "moscow": "Should", "class": "Standaard", "solution": "Retourorders met artikeltracering", "days": 1.5, "owner": "Teamleider klantendienst", "tests": ["UAT-09"] },
+    { "id": "AK-01", "domain": "Aankoop", "text": "Bestellingen vanuit het planningsvoorstel", "moscow": "Must", "class": "Standaard", "solution": "Planningsvoorstel → aankooporders", "days": 2, "owner": "Aankoper", "tests": ["UAT-02"] },
+    { "id": "AK-02", "domain": "Aankoop", "text": "Goedkeuring van bestellingen boven €10.000", "moscow": "Must", "class": "Configuratie", "solution": "Goedkeuringsworkflow aankoop", "days": 1, "owner": "CFO", "tests": ["UAT-10"] },
+    { "id": "AK-03", "domain": "Aankoop", "text": "Ontvangst van grondstoffen met leverancierslot en vervaldatum", "moscow": "Must", "class": "Standaard", "solution": "Artikeltracering met lot en vervaldatum", "days": 1.5, "owner": "Magazijnverantwoordelijke", "tests": ["UAT-03"] },
+    { "id": "AK-04", "domain": "Aankoop", "text": "Leveranciersbeoordeling op tijdigheid en kwaliteit", "moscow": "Could", "class": "Buiten scope", "solution": "Fase 2: Power BI op ontvangsten en blokkeringen", "days": 0, "owner": "Aankoper", "tests": [] },
+    { "id": "AK-05", "domain": "Aankoop", "text": "Raamcontracten voor grondstoffen", "moscow": "Should", "class": "Standaard", "solution": "Raamorders", "days": 1, "owner": "Aankoper", "tests": ["UAT-02"] },
+    { "id": "PR-01", "domain": "Productie", "text": "Recepturen als productiestuklijsten met versies en uitval", "moscow": "Must", "class": "Standaard", "solution": "Productiestuklijsten met versies, uitvalpercentage (Premium)", "days": 5, "owner": "Plantmanager", "tests": ["UAT-05"] },
+    { "id": "PR-02", "domain": "Productie", "text": "Routings per lijn in Hal 1 en Hal 2", "moscow": "Must", "class": "Standaard", "solution": "Routings, afdelingen en machinecentra", "days": 4, "owner": "Plantmanager", "tests": ["UAT-05"] },
+    { "id": "PR-03", "domain": "Productie", "text": "Weekplanning met het planningsvoorstel in plaats van het Excel-planbord", "moscow": "Must", "class": "Procesaanpassing", "solution": "Planningsvoorstel (MRP) + Power BI-capaciteitsoverzicht per lijn", "days": 6, "owner": "Plantmanager", "tests": ["UAT-02"] },
+    { "id": "PR-04", "domain": "Productie", "text": "Grafisch planbord met slepen zoals in Excel", "moscow": "Could", "class": "Buiten scope", "solution": "Afgewezen in CR-03; mogelijke app in fase 2", "days": 0, "owner": "Plantmanager", "tests": [] },
+    { "id": "PR-05", "domain": "Productie", "text": "Output boeken met lotnummer en een vervaldatum berekend uit productiedatum en houdbaarheid", "moscow": "Must", "class": "Standaard", "solution": "Artikeltraceringscode met verplichte vervaldatum, houdbaarheid per artikel", "days": 3, "owner": "QA-manager", "tests": ["UAT-05"] },
+    { "id": "PR-06", "domain": "Productie", "text": "Grondstoffen verbruiken per lot; verpakking automatisch afboeken", "moscow": "Must", "class": "Standaard", "solution": "Verbruiksmethode Handmatig (grondstof) en Achterwaarts (verpakking)", "days": 1.5, "owner": "Plantmanager", "tests": ["UAT-05"] },
+    { "id": "PR-07", "domain": "Productie", "text": "Gewichten van de controleweegschalen automatisch als output", "moscow": "Could", "class": "Buiten scope", "solution": "Fase 2 (ADR-007): koppeling via API", "days": 0, "owner": "Plantmanager", "tests": [] },
+    { "id": "PR-08", "domain": "Productie", "text": "Elektronisch batchrecord met CCP-registraties", "moscow": "Should", "class": "Buiten scope", "solution": "Fase 2; papier blijft, met lotnummer uit Business Central", "days": 0, "owner": "QA-manager", "tests": [] },
+    { "id": "KW-01", "domain": "Kwaliteit", "text": "Nieuwe lots zijn geblokkeerd tot QA ze vrijgeeft", "moscow": "Must", "class": "Standaard", "solution": "Lotnummerinformatie Geblokkeerd + vrijgaveprocedure (ADR-005)", "days": 2, "owner": "QA-manager", "tests": ["UAT-05"] },
+    { "id": "KW-02", "domain": "Kwaliteit", "text": "Traceren voorwaarts en achterwaarts binnen vier uur", "moscow": "Must", "class": "Standaard", "solution": "Artikeltracering + archief voor de SAP-periode (ADR-003)", "days": 1, "owner": "QA-manager", "tests": ["UAT-15"] },
+    { "id": "KW-03", "domain": "Kwaliteit", "text": "Allergenen per grondstof, automatisch doorgerekend naar het eindproduct", "moscow": "Must", "class": "Extensie", "solution": "Artikelkenmerken + kleine extensie die allergenen uit de stuklijst optelt", "days": 4, "owner": "QA-manager", "tests": ["UAT-16"] },
+    { "id": "KW-04", "domain": "Kwaliteit", "text": "FEFO bij picking: eerst wat het eerst vervalt", "moscow": "Must", "class": "Standaard", "solution": "Locatie-instelling Picken volgens FEFO", "days": 1, "owner": "Magazijnverantwoordelijke", "tests": ["UAT-04"] },
+    { "id": "KW-05", "domain": "Kwaliteit", "text": "Laboresultaten per lot registreren", "moscow": "Should", "class": "Buiten scope", "solution": "Fase 2: kwaliteitsapp; fase 1 blijft de labo-Excel met lotnummer", "days": 0, "owner": "QA-manager", "tests": [] },
+    { "id": "VR-01", "domain": "Voorraad", "text": "Extern koelhuis als locatie met dagelijkse voorraadmelding", "moscow": "Must", "class": "Configuratie", "solution": "Locatie KOEL + dagelijkse afstemming via standaard-API", "days": 3, "owner": "Magazijnverantwoordelijke", "tests": ["UAT-17"] },
+    { "id": "VR-02", "domain": "Voorraad", "text": "Scanners voor ontvangst en picking", "moscow": "Should", "class": "ISV-app", "solution": "Magazijnscanapp", "days": 4, "owner": "Magazijnverantwoordelijke", "tests": ["UAT-03", "UAT-04"] },
+    { "id": "VR-03", "domain": "Voorraad", "text": "Cyclische telling per zone", "moscow": "Should", "class": "Standaard", "solution": "Fysieke voorraadorders per telperiode", "days": 1, "owner": "Magazijnverantwoordelijke", "tests": ["UAT-17"] },
+    { "id": "VR-04", "domain": "Voorraad", "text": "GS1-128-labels voor halffabricaten en paletten", "moscow": "Must", "class": "ISV-app", "solution": "Labelapp met koppeling naar de labelprinters", "days": 3, "owner": "Magazijnverantwoordelijke", "tests": ["UAT-07"] },
+    { "id": "IT-01", "domain": "IT en rapportering", "text": "Rollen en rechten met functiescheiding (bestellen ≠ betalen)", "moscow": "Must", "class": "Configuratie", "solution": "Machtigingensets per rol, functiescheidingsmatrix", "days": 2, "owner": "IT Manager", "tests": ["UAT-10"] },
+    { "id": "IT-02", "domain": "IT en rapportering", "text": "De 14 Power BI-rapporten werken op Business Central", "moscow": "Should", "class": "Configuratie", "solution": "Power BI-connector voor Business Central", "days": 6, "owner": "Controller", "tests": ["UAT-14"] },
+    { "id": "IT-03", "domain": "IT en rapportering", "text": "SAP-gegevens tien jaar raadplegen (wettelijke bewaartermijn)", "moscow": "Must", "class": "Buiten scope", "solution": "Read-only archief buiten Business Central (ADR-003, eigen budgetlijn)", "days": 0, "owner": "CFO", "tests": [] }
+  ],
+  "budget": {
+    "approved": [
+      { "id": "B1", "line": "Implementatiepartner — vaste prijs kernscope", "amount": 412000 },
+      { "id": "B2", "line": "Implementatiepartner — datamigratie in regie (plafond)", "amount": 64000 },
+      { "id": "B3", "line": "Apps van derden jaar 1 (EDI, labels, scanners)", "amount": 31000 },
+      { "id": "B4", "line": "Licenties tijdens het project", "amount": 22000 },
+      { "id": "B5", "line": "Integraties derden (EDI-provider, labelsoftware, koelhuis)", "amount": 58000 },
+      { "id": "B6", "line": "SAP-archief, read-only, tien jaar", "amount": 36000 },
+      { "id": "B7", "line": "Vervanging key users (interim)", "amount": 104000 },
+      { "id": "B8", "line": "Opleiding en verandering", "amount": 26000 }
+    ],
+    "contingencyPct": 15,
+    "steercoThreshold": 25000,
+    "excluded": "Interne loonkost van het vaste personeel (projectmanager, IT Manager, key users) zit niet in het programmabudget.",
+    "forecastAtW18": [
+      { "id": "B1", "forecast": 412000, "spent": 164800, "note": "mijlpalen ontwerp en CRP2 gefactureerd (2 × 20%); 10% daarvan ingehouden tot einde hypercare" },
+      { "id": "B2", "forecast": 78000, "spent": 49500, "note": "proefmigratie 1 vond 214 lots zonder vervaldatum: extra opschoningsronde" },
+      { "id": "B3", "forecast": 31000, "spent": 31000 },
+      { "id": "B4", "forecast": 22000, "spent": 13200 },
+      { "id": "B5", "forecast": 61500, "spent": 38400, "note": "certificering EDI-berichten retailer R4 duurt langer" },
+      { "id": "B6", "forecast": 36000, "spent": 0 },
+      { "id": "B7", "forecast": 104000, "spent": 61600 },
+      { "id": "B8", "forecast": 26000, "spent": 9800 }
+    ]
+  },
+  "changeRequests": [
+    { "id": "CR-01", "title": "Retailerspecifieke lay-out van het paletlabel (R2, R5)", "requestedBy": "Teamleider klantendienst", "impactDays": 4, "cost": 9800, "decision": "goedgekeurd", "by": "IT Manager", "reason": "contractuele eis van twee retailers; zonder label geen levering" },
+    { "id": "CR-02", "title": "Zevende EDI-partner (nieuwe foodservice-klant)", "requestedBy": "Commercieel directeur", "impactDays": 3, "cost": 6400, "decision": "goedgekeurd", "by": "IT Manager", "reason": "nieuw contract met omzet vanaf de zomer; standaardmapping van de EDI-provider" },
+    { "id": "CR-03", "title": "Grafisch planbord met slepen, gebouwd als extensie", "requestedBy": "Hoofd planning", "impactDays": 38, "cost": 41800, "decision": "afgewezen", "by": "Stuurgroep", "reason": "zou de grootste extensie van het project worden en vertraagt de go-live; eerst het planningsvoorstel een seizoen gebruiken, een app in fase 2 opnieuw bekijken" },
+    { "id": "CR-04", "title": "Extra rapport ‘oude SAP-orderhistoriek in Business Central’", "requestedBy": "Controller", "impactDays": 6, "cost": 6900, "decision": "afgewezen", "by": "IT Manager", "reason": "de historiek staat in het archief (ADR-003); Power BI kan archief en Business Central samen tonen zonder migratie" }
+  ],
+  "costOfDelay": {
+    "weeks": 4,
+    "items": [
+      { "line": "Vervanging key users vier weken langer", "budgetId": "B7", "amount": 16000 },
+      { "line": "Partnerteam in afgeslankte bezetting", "budgetId": "B1", "amount": 22400, "note": "buiten de vaste prijs: de go-live-datum lag vast in het contract" },
+      { "line": "SAP-hosting één maand langer", "budgetId": "B5", "amount": 7800 },
+      { "line": "Vierde proefmigratie + herhaalde mock recall", "budgetId": "B2", "amount": 9500 }
+    ]
+  },
+  "milestones": [
+    { "id": "M0", "name": "Programmastart en charter getekend", "plannedWeek": 1, "actualWeek": 1 },
+    { "id": "M1", "name": "Partner gekozen en contract getekend", "plannedWeek": 6, "actualWeek": 7 },
+    { "id": "M2", "name": "Ontwerp afgetekend (fit-gap + oplossingsontwerp)", "plannedWeek": 12, "actualWeek": 13 },
+    { "id": "M3", "name": "Configuratie en extensies klaar", "plannedWeek": 17, "actualWeek": 17 },
+    { "id": "M4", "name": "Proefmigratie 1", "plannedWeek": 18, "actualWeek": 18 },
+    { "id": "M5", "name": "Integratietest (SIT) en proefmigratie 2", "plannedWeek": 21, "actualWeek": 21 },
+    { "id": "M6", "name": "UAT en generale repetitie (proefmigratie 3)", "plannedWeek": 24, "actualWeek": 24 },
+    { "id": "M7", "name": "Go/no-go 1", "plannedWeek": 25, "actualWeek": 25 },
+    { "id": "M8", "name": "Proefmigratie 4 en go/no-go 2", "plannedWeek": null, "actualWeek": 29 },
+    { "id": "M9", "name": "Go-live", "plannedWeek": 26, "actualWeek": 30 },
+    { "id": "M10", "name": "Einde hypercare", "plannedWeek": 32, "actualWeek": 36 },
+    { "id": "M11", "name": "Batenreview drie maanden na go-live", "plannedWeek": 39, "actualWeek": 43 }
+  ],
+  "goLiveDates": { "planned": "1 maart (W26)", "actual": "1 april (W30)" },
+  "mocks": [
+    { "id": "mock-1", "name": "Proefmigratie 1", "week": 18, "purpose": "volledigheid van de extracten en de mapping" },
+    { "id": "mock-2", "name": "Proefmigratie 2", "week": 21, "purpose": "opschoning meten, eerste afstemming met finance" },
+    { "id": "mock-3", "name": "Proefmigratie 3 (generale repetitie)", "week": 24, "purpose": "volledig draaiboek op tijd, afstemming en mock recall" },
+    { "id": "mock-4", "name": "Proefmigratie 4", "week": 29, "purpose": "herhaling na de correctie van de lotgegevens van halffabricaten" }
+  ],
+  "testing": {
+    "cycles": [
+      { "id": "CRP1", "name": "Conference room pilot 1", "week": 14, "who": "key users + partner", "goal": "standaardproces tonen op eigen artikelen" },
+      { "id": "CRP2", "name": "Conference room pilot 2", "week": 17, "who": "key users", "goal": "ingericht proces met extensies doorlopen" },
+      { "id": "SIT", "name": "Integratietest", "week": 20, "who": "partner + leveranciers", "goal": "EDI, labels, koelhuis, Peppol, bank" },
+      { "id": "UAT", "name": "Gebruikersacceptatietest", "week": 23, "who": "key users", "goal": "end-to-end scenario's op gemigreerde data van proefmigratie 2" }
+    ],
+    "scenarios": [
+      { "id": "UAT-01", "name": "EDI-order retailer → verkooporder met juiste prijs en kredietcontrole", "owner": "Klantendienst" },
+      { "id": "UAT-02", "name": "Weekplanning: planningsvoorstel → productie- en aankooporders", "owner": "Planning" },
+      { "id": "UAT-03", "name": "Ontvangst grondstof met leverancierslot en vervaldatum (scanner)", "owner": "Magazijn" },
+      { "id": "UAT-04", "name": "Picken volgens FEFO met controle op minimale resterende houdbaarheid", "owner": "Magazijn" },
+      { "id": "UAT-05", "name": "Productieorder: verbruik per lot, output met lot en vervaldatum, QA-vrijgave", "owner": "Productie + QA" },
+      { "id": "UAT-06", "name": "Kostprijsafwijking van een afgewerkte productieorder", "owner": "Controller" },
+      { "id": "UAT-07", "name": "Levering met SSCC-label en DESADV naar retailer", "owner": "Magazijn + klantendienst" },
+      { "id": "UAT-08", "name": "Factuur via Peppol (BE) en via EDI (retailer)", "owner": "Finance" },
+      { "id": "UAT-09", "name": "Retour van een lot met blokkering", "owner": "Klantendienst + QA" },
+      { "id": "UAT-10", "name": "Goedkeuring bestelling boven €10.000 en functiescheiding bij betaling", "owner": "Finance" },
+      { "id": "UAT-11", "name": "Btw-aangifte en grootboek met dimensies", "owner": "Finance" },
+      { "id": "UAT-12", "name": "CODA inlezen en afletteren, SEPA-betaalbestand", "owner": "Finance" },
+      { "id": "UAT-13", "name": "Intrastat en afschrijving vaste activa", "owner": "Finance" },
+      { "id": "UAT-14", "name": "Maandafsluiting en Power BI-margerapport", "owner": "Controller" },
+      { "id": "UAT-15", "name": "Mock recall: grondstoflot voorwaarts en eindproductlot achterwaarts", "owner": "QA" },
+      { "id": "UAT-16", "name": "Allergenen van een nieuwe receptuur", "owner": "QA" },
+      { "id": "UAT-17", "name": "Voorraadmelding koelhuis en cyclische telling", "owner": "Magazijn" }
+    ],
+    "defects": [
+      { "id": "DEF-07", "sev": 2, "title": "Outputboeking rondt uitval af per eenheid in plaats van per kg", "area": "Productie", "status": "open", "workaround": "uitval handmatig corrigeren in het outputdagboek tot de fix" },
+      { "id": "DEF-11", "sev": 2, "title": "DESADV van retailer R4 wordt geweigerd: SSCC-segment in verkeerde volgorde", "area": "EDI", "status": "open", "workaround": "leverbericht voor R4 via het webportaal van de retailer" },
+      { "id": "DEF-14", "sev": 3, "title": "Paletlabel toont houdbaarheidsdatum in Amerikaans formaat", "area": "Labels", "status": "open", "workaround": "geen nodig: datum leesbaar, cosmetisch" },
+      { "id": "DEF-15", "sev": 3, "title": "Planningsvoorstel stelt order voor op lijn in onderhoud", "area": "Planning", "status": "open", "workaround": "kalender machinecentrum aanpassen" },
+      { "id": "DEF-16", "sev": 3, "title": "Power BI-margerapport mist promotiekortingen", "area": "Rapportering", "status": "open", "workaround": "kortingen apart tonen" },
+      { "id": "DEF-17", "sev": 3, "title": "Allergenen-extensie toont ‘sporen van’ niet op de afdruk", "area": "Kwaliteit", "status": "open", "workaround": "QA voegt de vermelding handmatig toe op de specificatie" },
+      { "id": "DEF-18", "sev": 3, "title": "Retourorder neemt het lot niet over uit de oorspronkelijke levering", "area": "Verkoop", "status": "open", "workaround": "lot handmatig kiezen" },
+      { "id": "DEF-19", "sev": 3, "title": "SEPA-bestand: naam begunstigde afgekapt op 35 tekens", "area": "Financiën", "status": "open", "workaround": "bank aanvaardt het bestand" },
+      { "id": "DEF-20", "sev": 3, "title": "Telformulier sorteert niet per gang", "area": "Voorraad", "status": "open", "workaround": "sorteren in Excel" },
+      { "id": "DEF-02", "sev": 1, "title": "Btw-boekingsgroep ontbreekt bij Franse klanten na migratie", "area": "Financiën", "status": "opgelost", "workaround": "" },
+      { "id": "DEF-05", "sev": 2, "title": "Peppol-factuur geweigerd door access point: ontbrekend ondernemingsnummer", "area": "Financiën", "status": "opgelost", "workaround": "" }
+    ],
+    "uatResult": { "executed": 17, "passed": 15, "passedWithDefect": 2, "failed": 0 }
+  },
+  "training": {
+    "keyUsers": { "planned": 14, "trained": 14 },
+    "endUsers": { "planned": 64, "trainedAtW25": 54, "trainedAtW29": 61 }
+  },
+  "goNoGo": {
+    "principle": "De criteria en drempels zijn in W16 door de stuurgroep vastgelegd, vóór er resultaten waren. Een hard criterium kan op de dag zelf niet worden kwijtgescholden.",
+    "criteria": [
+      { "id": "G1", "name": "Mock recall volledig: elk afgeleid lot in voorraad terug te vinden met lotnummer en vervaldatum", "type": "hard", "source": "migration.recall", "threshold": "100%" },
+      { "id": "G2", "name": "Geen blokkerende datakwaliteitsfouten in de migratiescope", "type": "hard", "source": "migration.blocking", "threshold": "0" },
+      { "id": "G3", "name": "Voorraadwaarde Business Central vs SAP: verschil ten hoogste 0,1%", "type": "hard", "source": "migration.stockDiff", "threshold": "≤ 0,1%" },
+      { "id": "G4", "name": "Openstaande klant- en leveranciersposten sluiten tot op de cent", "type": "hard", "source": "migration.openItems", "threshold": "€0,00" },
+      { "id": "G5", "name": "Geen open defect van ernst 1", "type": "hard", "source": "testing.sev1", "threshold": "0" },
+      { "id": "G6", "name": "Ten hoogste twee open defects van ernst 2, elk met een aanvaarde workaround", "type": "soft", "source": "testing.sev2", "threshold": "≤ 2" },
+      { "id": "G7", "name": "Key users opgeleid", "type": "hard", "source": "training.keyUsers", "threshold": "100%" },
+      { "id": "G8", "name": "Eindgebruikers opgeleid", "type": "soft", "source": "training.endUsers", "threshold": "≥ 90%" },
+      { "id": "G9", "name": "Alle EDI-partners end-to-end getest", "type": "soft", "source": "integration.edi", "threshold": "7 / 7" },
+      { "id": "G10", "name": "Draaiboek in de generale repetitie binnen het cutovervenster (≤ 40 u)", "type": "hard", "source": "cutover.hours", "threshold": "≤ 40 u" },
+      { "id": "G11", "name": "Terugvalplan getest en afgetekend", "type": "hard", "source": "cutover.rollback", "threshold": "ja" },
+      { "id": "G12", "name": "Hypercareteam, ticketing en escalatie klaar", "type": "soft", "source": "support.ready", "threshold": "ja" }
+    ],
+    "softRule": "Ten hoogste twee zachte criteria mogen falen, elk met een eigenaar en een aanvaarde workaround.",
+    "moments": [
+      { "id": "GNG-1", "week": 25, "mock": "mock-3", "forGoLive": "1 maart", "training": "trainedAtW25", "edi": { "tested": 6, "total": 7 }, "cutoverHours": 37, "rollback": true, "support": true, "openDefectsAt": "W25" },
+      { "id": "GNG-2", "week": 29, "mock": "mock-4", "forGoLive": "1 april", "training": "trainedAtW29", "edi": { "tested": 7, "total": 7 }, "cutoverHours": 34, "rollback": true, "support": true, "openDefectsAt": "W29", "fixedDefects": ["DEF-07", "DEF-11", "DEF-14", "DEF-15"] }
+    ]
+  },
+  "cutover": {
+    "window": "vrijdag 14:00 tot zondag 06:00 (40 uur), productie stil van vrijdag 22:00 tot zondag 06:00",
+    "steps": [
+      { "t": "D-10", "what": "Bevriezing stamgegevens in SAP (geen nieuwe artikelen, klanten, recepturen)", "who": "Data-eigenaars" },
+      { "t": "D-3", "what": "Laatste aankooporders in SAP; leveranciers geïnformeerd over nieuw ordernummerformaat", "who": "Aankoop" },
+      { "t": "D-1 12:00", "what": "Laatste productieorders in SAP afgewerkt; geen halffabricaat in bewerking", "who": "Planning" },
+      { "t": "D0 14:00", "what": "SAP op alleen-lezen voor voorraad en verkoop; EDI-provider buffert inkomende orders", "who": "IT + EDI-provider" },
+      { "t": "D0 16:00", "what": "Fysieke telling per lot in Hal 1, Hal 2 en magazijn; koelhuis levert lotlijst", "who": "Magazijn + koelhuis" },
+      { "t": "D0 22:00", "what": "Extractie SAP (stamgegevens, lots, openstaande orders en posten, saldi)", "who": "Partner" },
+      { "t": "D1 02:00", "what": "Datakwaliteitscontrole; blokkerende fouten = stop en escaleren", "who": "Projectmanager" },
+      { "t": "D1 04:00", "what": "Inladen in productie-omgeving Business Central", "who": "Partner" },
+      { "t": "D1 12:00", "what": "Afstemming voorraadwaarde, openstaande posten, grootboeksaldi; aftekening door de controller", "who": "Controller + CFO" },
+      { "t": "D1 16:00", "what": "Mock recall op productie-data, aftekening QA", "who": "QA-manager" },
+      { "t": "D1 20:00", "what": "Go/no-go-call: laatste beslissing, anders terugval", "who": "Stuurgroep" },
+      { "t": "D2 04:00", "what": "EDI-buffer vrijgegeven naar Business Central; eerste orders gecontroleerd", "who": "Klantendienst" },
+      { "t": "D2 06:00", "what": "Eerste ploeg start op Business Central; key users op de vloer", "who": "Productie + key users" }
+    ],
+    "rollback": "Tot de go/no-go-call op D1 20:00 kan SAP volledig terug in gebruik: EDI-buffer terug naar SAP, telling in SAP geboekt. Daarna geen terugval meer maar voorwaarts herstellen."
+  },
+  "raid": [
+    { "id": "R-01", "type": "Risico", "title": "Key users niet vrij tijdens het soepseizoen (ontwerp en test vallen in oktober – februari)", "prob": 4, "impact": 4, "owner": "COO", "mitigation": "Interim-vervanging van vier key users gebudgetteerd (B7); testweken vooraf in de productieplanning gezet", "status": "beheerst" },
+    { "id": "R-02", "type": "Risico", "title": "SAP-kennis verdwijnt: de ABAP-freelancer stopt eind december", "prob": 3, "impact": 4, "owner": "IT Manager", "mitigation": "Extractieprogramma's vóór december laten documenteren en testen; contract verlengd tot na de go-live op afroep", "status": "beheerst" },
+    { "id": "R-03", "type": "Risico", "title": "Partner vervangt de lead consultant", "prob": 2, "impact": 4, "owner": "Projectmanager", "mitigation": "Naam in het contract, vervanging alleen met akkoord, overlap van twee weken", "status": "open" },
+    { "id": "R-04", "type": "Risico", "title": "Lotgegevens in SAP onvolledig (houdbaarheid, vervaldatum)", "prob": 3, "impact": 5, "owner": "QA-manager", "mitigation": "Datakwaliteitsregels DQ-10 tot DQ-12 vanaf proefmigratie 1; QA tekent af", "status": "werkelijkheid geworden → I-03" },
+    { "id": "R-05", "type": "Risico", "title": "Certificering EDI-berichten per retailer duurt vier tot zes weken", "prob": 4, "impact": 3, "owner": "Teamleider klantendienst", "mitigation": "Certificering gestart in W14, parallel aan de bouw; terugval via webportaal per retailer", "status": "open" },
+    { "id": "R-06", "type": "Risico", "title": "BRCGS-audit in mei valt kort na de go-live", "prob": 3, "impact": 5, "owner": "QA-manager", "mitigation": "Mock recall als hard go/no-go-criterium; auditor vooraf informeren over de systeemwissel", "status": "open" },
+    { "id": "R-07", "type": "Risico", "title": "Hoofd planning blijft het Excel-planbord gebruiken naast Business Central", "prob": 4, "impact": 3, "owner": "COO", "mitigation": "Planner test het planningsvoorstel op een echte week; Power BI-capaciteitsoverzicht als vervanging van het visuele bord; CR-03 in fase 2 opnieuw", "status": "open" },
+    { "id": "R-08", "type": "Risico", "title": "Licenties: Essentials en Premium kunnen niet gemengd worden", "prob": 5, "impact": 2, "owner": "IT Manager", "mitigation": "Alle volledige gebruikers op Premium begroot; licht gebruik via Team Members", "status": "gesloten" },
+    { "id": "R-09", "type": "Risico", "title": "Scope creep: ‘dat konden we in SAP ook’ voor 146 Z-objecten", "prob": 4, "impact": 4, "owner": "Projectmanager", "mitigation": "Elk Z-object kreeg in het ontwerp een beslissing (standaard, app, extensie, procesaanpassing, stoppen); nieuwe wensen alleen via CR", "status": "beheerst" },
+    { "id": "R-10", "type": "Risico", "title": "Hypercare valt samen met de voorraadopbouw voor het BBQ-seizoen", "prob": 3, "impact": 4, "owner": "COO", "mitigation": "Key users twee weken vrijgesteld na de go-live; partner on site in week 1–2", "status": "open" },
+    { "id": "A-01", "type": "Aanname", "title": "De EDI-provider kan inkomende orders 40 uur bufferen tijdens de cutover", "prob": 0, "impact": 0, "owner": "Teamleider klantendienst", "mitigation": "Bevestigd in de SIT (W20)", "status": "bevestigd" },
+    { "id": "A-02", "type": "Aanname", "title": "Retailers aanvaarden een nieuw ordernummerformaat op leverberichten", "prob": 0, "impact": 0, "owner": "Teamleider klantendienst", "mitigation": "Brief aan retailers in W19; vijf van zes bevestigd", "status": "open" },
+    { "id": "I-01", "type": "Issue", "title": "Partnerkeuze één week later dan gepland: referentiebezoek Partner B verschoven", "prob": 0, "impact": 0, "owner": "Projectmanager", "mitigation": "Ontwerpfase ingekort door twee workshops samen te voegen", "status": "gesloten" },
+    { "id": "I-02", "type": "Issue", "title": "Retailer R4 weigert DESADV (SSCC-segment)", "prob": 0, "impact": 0, "owner": "Teamleider klantendienst", "mitigation": "DEF-11; terugval via webportaal", "status": "open" },
+    { "id": "I-03", "type": "Issue", "title": "Halffabricaatlots zonder vervaldatum: een eigen SAP-transactie voor ontvangst van halffabricaten slaat het veld over", "prob": 0, "impact": 0, "owner": "QA-manager", "mitigation": "Vervaldatum herberekenen uit productiedatum + houdbaarheid, QA controleert steekproef, proefmigratie 4", "status": "opgelost in W29" },
+    { "id": "D-01", "type": "Afhankelijkheid", "title": "Peppol-access point actief vóór de go-live", "prob": 0, "impact": 0, "owner": "CFO", "mitigation": "Aangevraagd in W10, getest in de SIT", "status": "afgerond" },
+    { "id": "D-02", "type": "Afhankelijkheid", "title": "Labelsoftware-leverancier levert de nieuwe koppeling", "prob": 0, "impact": 0, "owner": "Magazijnverantwoordelijke", "mitigation": "Opgenomen in de SIT; leverancier in de cutoverbezetting", "status": "afgerond" },
+    { "id": "D-03", "type": "Afhankelijkheid", "title": "Koelhuis (3PL) levert dagelijks een voorraadbestand in het nieuwe formaat", "prob": 0, "impact": 0, "owner": "Magazijnverantwoordelijke", "mitigation": "Formaat afgesproken in W12, getest in de SIT", "status": "afgerond" }
+  ],
+  "decisions": [
+    { "id": "DEC-01", "week": 2, "decision": "Doel en scope vastgelegd in het programmacharter: één go-live voor alle processen", "by": "Stuurgroep", "ref": "adr/adr-002-een-go-live.md" },
+    { "id": "DEC-02", "week": 6, "decision": "Partner A gekozen; contract met vaste prijs per mijlpaal", "by": "Stuurgroep", "ref": "adr/adr-006-contractvorm.md" },
+    { "id": "DEC-03", "week": 9, "decision": "Standaard eerst; ten hoogste drie extensies, elk goedgekeurd door de stuurgroep", "by": "Stuurgroep", "ref": "adr/adr-001-standaard-eerst.md" },
+    { "id": "DEC-04", "week": 10, "decision": "Geen SAP-historiek migreren; read-only archief voor tien jaar", "by": "CFO", "ref": "adr/adr-003-geen-historiek-wel-archief.md" },
+    { "id": "DEC-05", "week": 11, "decision": "Lotnummers uit SAP blijven ongewijzigd in Business Central", "by": "QA-manager", "ref": "adr/adr-008-lotnummers-behouden.md" },
+    { "id": "DEC-06", "week": 12, "decision": "Nieuwe lots standaard geblokkeerd tot QA-vrijgave (standaardfunctie, geen app)", "by": "QA-manager", "ref": "adr/adr-005-lotvrijgave.md" },
+    { "id": "DEC-07", "week": 12, "decision": "Koppeling met de controleweegschalen naar fase 2", "by": "COO", "ref": "adr/adr-007-weegschalen-fase-2.md" },
+    { "id": "DEC-08", "week": 16, "decision": "Go/no-go-criteria en drempels vastgelegd", "by": "Stuurgroep", "ref": "../08-go-live/go-no-go.md" },
+    { "id": "DEC-09", "week": 19, "decision": "CR-03 (grafisch planbord) afgewezen", "by": "Stuurgroep", "ref": "../governance/change-requests.md" },
+    { "id": "DEC-10", "week": 25, "decision": "Go/no-go 1: no-go voor 1 maart; nieuwe datum 1 april; €55.700 uit de reserve", "by": "Stuurgroep", "ref": "../08-go-live/go-no-go.md" },
+    { "id": "DEC-11", "week": 29, "decision": "Go/no-go 2: go voor 1 april", "by": "Stuurgroep", "ref": "../08-go-live/go-no-go.md" },
+    { "id": "DEC-12", "week": 36, "decision": "Hypercare afgesloten; 10% ingehouden bedrag vrijgegeven aan de partner", "by": "IT Manager", "ref": "../08-go-live/hypercare.md" }
+  ],
+  "hypercare": {
+    "weeks": 6,
+    "tickets": [
+      { "week": 1, "data": 9, "setup": 6, "training": 11, "bug": 2, "integration": 4 },
+      { "week": 2, "data": 5, "setup": 4, "training": 7, "bug": 1, "integration": 3 },
+      { "week": 3, "data": 2, "setup": 3, "training": 4, "bug": 1, "integration": 1 },
+      { "week": 4, "data": 1, "setup": 1, "training": 3, "bug": 0, "integration": 1 },
+      { "week": 5, "data": 1, "setup": 1, "training": 1, "bug": 1, "integration": 0 },
+      { "week": 6, "data": 0, "setup": 1, "training": 1, "bug": 0, "integration": 0 }
+    ],
+    "exitCriteria": [
+      "Twee weken op rij minder dan vijf nieuwe tickets",
+      "Geen open ticket van ernst 1 of 2",
+      "Eerste maandafsluiting in Business Central afgerond",
+      "Overdracht naar de supportdesk van de partner en de interne application owner getekend"
+    ]
+  },
+  "kpis": [
+    { "id": "K1", "name": "Maandafsluiting", "unit": "werkdagen", "baseline": 9, "target": 5, "measured": 6, "owner": "CFO", "how": "dag waarop de controller de maandcijfers vrijgeeft", "betterIs": "lower" },
+    { "id": "K2", "name": "Mock recall (grondstof → klant)", "unit": "minuten", "baseline": 220, "target": 60, "measured": 42, "owner": "QA-manager", "how": "tijd van de oefening die QA elk kwartaal draait", "betterIs": "lower" },
+    { "id": "K3", "name": "Weekplanning opstellen", "unit": "uur", "baseline": 11, "target": 4, "measured": 5, "owner": "COO", "how": "tijdregistratie planner, vier weken gemiddeld", "betterIs": "lower" },
+    { "id": "K4", "name": "Manueel gecorrigeerde EDI-orders", "unit": "%", "baseline": 7.5, "target": 2, "measured": 2.4, "owner": "Teamleider klantendienst", "how": "orders met een manuele wijziging / alle EDI-orders", "betterIs": "lower" },
+    { "id": "K5", "name": "Voorraadnauwkeurigheid", "unit": "%", "baseline": 94.1, "target": 98, "measured": 97.2, "owner": "Magazijnverantwoordelijke", "how": "lots zonder telverschil / getelde lots", "betterIs": "higher" },
+    { "id": "K6", "name": "Jaarlijkse runkosten ERP", "unit": "k€", "baseline": 286, "target": 168, "measured": 171, "owner": "IT Manager", "how": "licenties + hosting + support + apps, op jaarbasis", "betterIs": "lower" }
+  ],
+  "roadmap": [
+    { "quarter": "Q+1", "item": "Koppeling controleweegschalen → output in Business Central", "why": "manuele outputboeking kost 25 minuten per ploeg", "ref": "PR-07" },
+    { "quarter": "Q+1", "item": "Application owner Business Central aanstellen (intern)", "why": "nu hangt de kennis bij de partner en de projectmanager", "ref": "team" },
+    { "quarter": "Q+2", "item": "Kwaliteitsapp: laboresultaten per lot, automatische vrijgave", "why": "QA-vrijgave is nog een handmatige stap op basis van Excel", "ref": "KW-05" },
+    { "quarter": "Q+2", "item": "Planbord-app evalueren na één BBQ-seizoen met het planningsvoorstel", "why": "CR-03 opnieuw bekijken met data in plaats van gewoonte", "ref": "PR-04" },
+    { "quarter": "Q+3", "item": "Elektronisch batchrecord (CCP's) op tablets", "why": "papieren batchrecords zijn de laatste breuk in de traceerbaarheid", "ref": "PR-08" },
+    { "quarter": "Q+3", "item": "Beveiligingsbasis M365 en Entra ID: MFA overal, voorwaardelijke toegang, beheerde toestellen op de vloer", "why": "Business Central is SaaS; identiteit is de nieuwe perimeter", "ref": "architectuur" },
+    { "quarter": "Q+4", "item": "Datamodel Power BI op één bron, archief en Business Central samen", "why": "14 rapporten ombouwen naar één semantisch model", "ref": "IT-02" },
+    { "quarter": "Q+4", "item": "Leveranciersbeoordeling", "why": "aankoop vraagt het al twee jaar", "ref": "AK-04" }
+  ]
+}
