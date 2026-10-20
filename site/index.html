@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Van SAP naar Business Central — ERP-migratieprogramma (portfoliocase)</title>
+  <meta name="description" content="Een ERP-migratie in de voedingsindustrie, geleid vanuit de klant: partnerkeuze, fit-gap, datamigratie met kwaliteitsregels, go/no-go en uitrol. Onafhankelijke portfoliocase over een fictieve organisatie.">
+  <meta property="og:title" content="Van SAP naar Business Central bij een voedingsproducent">
+  <meta property="og:description" content="Een ERP-migratieprogramma geleid vanuit de klant: partnerkeuze, fit-gap, datamigratie, go/no-go en uitrol. Portfoliocase, fictieve organisatie.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://phlppgdfry.github.io/manufacturing-erp-migration-programme/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="./">ERP-migratie · Vaerdal Foods</a>
+    <nav aria-label="Hoofdnavigatie">
+      <a href="#aanpak">Aanpak</a>
+      <a href="#beslissing">De beslissing</a>
+      <a href="#bewijs">Bewijs</a>
+      <a href="room/">Control room</a>
+      <a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Portfoliocase · IT-projectmanager / business analist · Philippe Godfroy</p>
+      <h1>Van SAP naar Business Central bij een voedingsproducent</h1>
+      <p class="lede">Een ERP-migratie geleid vanuit de klant. Ik koos mee de implementatiepartner, legde 41 eisen naast de standaard, bouwde de datacontroles en bracht de stuurgroep een go/no-go-voorstel dat de go-live vier weken uitstelde. De reden: <!--n:mock3.DQ-10-->107<!--/n--> lots zonder vervaldatum.</p>
+      <p class="disclaimer">Onafhankelijke portfoliocase over een fictieve organisatie (Vaerdal Foods). Bevat geen vertrouwelijke informatie van een echte werkgever, klant of leverancier. Alle cijfers zijn illustratieve aannames; resultaten na de go-live zijn gesimuleerd.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="room/?tour">Rondleiding van 2 minuten</a>
+        <a class="btn" href="room/">Open de control room</a>
+        <a class="btn" href="brief/">Executive brief</a>
+        <a class="btn" href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme">Bekijk op GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="uitdaging">
+    <div class="wrap">
+      <h2>De uitdaging</h2>
+      <p>Vaerdal Foods maakt gekoelde sauzen en soepen voor supermarkten in drie landen (<!--n:org.employees-->185<!--/n--> medewerkers). SAP ECC verliest zijn standaardonderhoud, de enige SAP-ontwikkelaar stopt. De raad van bestuur koos Business Central. Alles wat ertussen zit, is het programma.</p>
+      <div class="grid cards-4">
+        <div class="card"><p class="label">Planning</p><h3>Excel-planbord</h3><p>22 jaar regels in formules die één persoon kent.</p></div>
+        <div class="card"><p class="label">Traceerbaarheid</p><h3>Papier</h3><p>Een recall-oefening duurt <!--n:kpi.K2.baseline-->220<!--/n--> minuten.</p></div>
+        <div class="card"><p class="label">Kwaliteit</p><h3>Vrijgave per mail</h3><p>Het systeem weet niet of een lot vrij is.</p></div>
+        <div class="card"><p class="label">Seizoenen</p><h3>Geen goed moment</h3><p>Soep van oktober tot februari, BBQ-sauzen vanaf april.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="rol">
+    <div class="wrap">
+      <h2>Mijn rol in deze case</h2>
+      <p>IT-projectmanager en business analist aan de kant van het bedrijf, rapporteert aan de IT Manager. Ik <strong>koos mee</strong> de partner, <strong>leidde</strong> de procesworkshops, <strong>vertaalde</strong> processen naar een fit-gap, <strong>bewaakte</strong> planning, budget en kwaliteit van partner en leveranciers, <strong>organiseerde</strong> datakwaliteit, testen en opleiding met finance en productie, en <strong>bereidde</strong> de go/no-go voor. Configureren deed de partner; beslissen deed de stuurgroep.</p>
+    </div>
+  </section>
+
+  <section class="section" id="aanpak">
+    <div class="wrap">
+      <h2>Waarom deze aanpak</h2>
+      <div class="grid cards-3">
+        <div class="card decision">
+          <h3>Gewichten vóór de offertes</h3>
+          <p class="why">De stuurgroep legde de selectiecriteria vast voor er één prijs binnen was; prijs weegt 15%. Partner A wint, en blijft winnen tot prijs meer dan <!--n:sens.C6.to-->40%<!--/n--> weegt.</p>
+          <p class="alt">Verworpen: kiezen op prijs. Het verschil tussen offertes was kleiner dan één maand vertraging. <a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme/blob/main/docs/02-partnerselectie/README.md">Partnerselectie</a></p>
+        </div>
+        <div class="card decision">
+          <h3>Standaard eerst, extensies via de stuurgroep</h3>
+          <p class="why"><!--n:fg.stdConfPct-->74%<!--/n--> van de eisen in scope is standaard of configuratie. Van 146 SAP-maatwerkobjecten bleven <!--n:fg.extensions-->2<!--/n--> extensies over, allebei wettelijk of contractueel.</p>
+          <p class="alt">Verworpen: het grafische planbord als extensie (€41.800). <a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme/blob/main/docs/adr/adr-001-standaard-eerst.md">ADR-001</a></p>
+        </div>
+        <div class="card decision">
+          <h3>Criteria vastgelegd vóór de cijfers</h3>
+          <p class="why">Twaalf go/no-go-criteria, acht hard, vastgelegd in week 16. Een hard criterium wordt op de dag zelf niet kwijtgescholden.</p>
+          <p class="alt">Verworpen: "we beslissen op het moment zelf". <a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme/blob/main/docs/08-go-live/go-no-go.md">Go/no-go</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="traject">
+    <div class="wrap">
+      <h2>Het traject</h2>
+      <ol class="journey">
+        <li><a href="room/#partners"><span class="step-no">1</span><span>Partnerkeuze<small>criteria, demoscript, contract</small></span></a></li>
+        <li><a href="room/#processen"><span class="step-no">2</span><span>Processen<small>6 workshops, as-is → to-be</small></span></a></li>
+        <li><a href="room/#fitgap"><span class="step-no">3</span><span>Fit-gap<small><!--n:fg.total-->41<!--/n--> eisen, beslisser per regel</small></span></a></li>
+        <li><a href="room/#migratie"><span class="step-no">4</span><span>Datamigratie<small><!--n:dq.rules-->15<!--/n--> regels, 4 proefmigraties</small></span></a></li>
+        <li><a href="room/#gonogo"><span class="step-no">5</span><span>Go/no-go<small>12 criteria, 2 momenten</small></span></a></li>
+        <li><a href="room/#nagolive"><span class="step-no">6</span><span>Na de go-live<small>hypercare, baten, roadmap</small></span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="beslissing">
+    <div class="wrap">
+      <h2>De beslissing die er toe deed</h2>
+      <p>In de generale repetitie klopte bijna alles. Behalve dit: <!--n:mock3.DQ-10-->107<!--/n--> lots halffabricaat zonder vervaldatum. Een eigen SAP-transactie sloeg het veld over, dus het opschonen hielp niet: elke productiedag maakte nieuwe foute lots. Drie harde criteria faalden op die ene oorzaak.</p>
+      <div class="grid cards-4">
+        <div class="card"><p class="label">Mock recall</p><div class="kpi-value"><!--n:mock3.recall-->96,7%<!--/n--></div><p class="kpi-sub">criterium 100%</p></div>
+        <div class="card"><p class="label">Blokkerende datafouten</p><div class="kpi-value"><!--n:mock3.blocking-->107<!--/n--></div><p class="kpi-sub">criterium 0</p></div>
+        <div class="card"><p class="label">Voorraadverschil</p><div class="kpi-value"><!--n:mock3.stockDiffPct-->2,131%<!--/n--></div><p class="kpi-sub">criterium ≤ 0,1%</p></div>
+        <div class="card"><p class="label">Kost van 4 weken uitstel</p><div class="kpi-value"><!--n:budget.delay-->€55.700<!--/n--></div><p class="kpi-sub">uit de reserve, besluit stuurgroep</p></div>
+      </div>
+      <p>Mijn voorstel: niet op 1 maart, wel op 1 april, met de bron eerst hersteld. Vier opties met kost en risico, één pagina. De stuurgroep koos uitstel. Vier weken later: recall <!--n:mock4.recall-->100,0%<!--/n-->, nul blokkerende fouten, <!--n:gng2.decision-->GO<!--/n-->.</p>
+      <div class="cta-row"><a class="btn" href="room/#gonogo">Bekijk beide go/no-go-momenten</a></div>
+    </div>
+  </section>
+
+  <section class="section" id="resultaat">
+    <div class="wrap">
+      <h2>Drie maanden later <span class="chip neutral">gesimuleerd</span></h2>
+      <div class="grid cards-3">
+        <div class="card"><p class="label">Mock recall</p><div class="kpi-value"><!--n:kpi.K2.measured-->42<!--/n--> min</div><p class="kpi-sub">was <!--n:kpi.K2.baseline-->220<!--/n-->, doel <!--n:kpi.K2.target-->60<!--/n--> · gehaald</p></div>
+        <div class="card"><p class="label">Maandafsluiting</p><div class="kpi-value"><!--n:kpi.K1.measured-->6<!--/n--> dagen</div><p class="kpi-sub">was <!--n:kpi.K1.baseline-->9<!--/n-->, doel <!--n:kpi.K1.target-->5<!--/n--> · nog niet</p></div>
+        <div class="card"><p class="label">Budget</p><div class="kpi-value"><!--n:budget.eac-->€842.400<!--/n--></div><p class="kpi-sub">van <!--n:budget.total-->€865.950<!--/n--> toegekend</p></div>
+      </div>
+      <p class="note">Eén van zes doelen gehaald, vijf op weg; elk met een eigenaar en een actie. Illustratieve cijfers.</p>
+    </div>
+  </section>
+
+  <section class="section" id="bewijs">
+    <div class="wrap">
+      <h2>Wat dit aantoont</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Wat de rol vraagt</th><th>Bewijs in deze case</th></tr></thead>
+          <tbody>
+            <tr><td>Een ERP-migratie leiden van analyse tot uitrol</td><td>charter, planning, vier proefmigraties, cutover, go/no-go, hypercare</td></tr>
+            <tr><td>Bedrijfsprocessen vertalen naar IT-oplossingen</td><td>6 workshops, BPMN as-is/to-be, fit-gap met <!--n:fg.total-->41<!--/n--> eisen en een beslisser per regel</td></tr>
+            <tr><td>Implementatiepartners en leveranciers aansturen: planning, budget, kwaliteit</td><td>selectie met gevoeligheidsanalyse, contract met acceptatie per mijlpaal, change requests, budget met reserve</td></tr>
+            <tr><td>Workshops en testfases met finance en productie</td><td>workshopplan, <!--n:uat.scenarios-->17<!--/n--> UAT-scenario's geschreven door key users, opleiding in drie golven</td></tr>
+            <tr><td>Begrip van productie en supply chain</td><td>recepturen, lots, houdbaarheid, FEFO, recall, seizoenen, koelhuis</td></tr>
+            <tr><td>Technologisch beleid met de IT Manager</td><td>IT-roadmap, architectuurprincipes, teamvoorstel</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme/blob/main/EVIDENCE.md">Volledige mapping met "getoond / niet geclaimd"</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="beperkingen">
+    <div class="wrap">
+      <h2>Wat deze case niet is</h2>
+      <ul class="measure">
+        <li>Er draait niets in een echte Business Central-omgeving. De migratie zet SAP-extracten om naar Business Central-records, stemt af en traceert, maar laadt niets.</li>
+        <li>De SAP-data is gegenereerd met bewust ingebouwde fouten; de testen bewijzen dat de regels precies die fouten vinden.</li>
+        <li>Partners, budget, defects, hypercare en KPI's zijn illustratief. Er is geen echt contract en geen echte stuurgroep.</li>
+        <li>Het configureren van Business Central zelf toont deze case niet; dat is de partnerkant (<a href="https://github.com/phlppgdfry/business-central-implementation-case">aparte case</a>).</li>
+      </ul>
+      <p>Demo laadt niet? <a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme/tree/main/docs/screenshots">Bekijk de screenshots van elke stap</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Onafhankelijke portfoliocase over een fictieve organisatie. Code MIT, documentatie en data CC BY 4.0. Philippe Godfroy · <a href="https://github.com/phlppgdfry">github.com/phlppgdfry</a></p>
+  </div>
+</footer>
+</body>
+</html>

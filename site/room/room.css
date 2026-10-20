@@ -1,0 +1,64 @@
+/* Control room layout: side navigation on wide screens, horizontal scroll tabs on phones. */
+.room-disclaimer { font-size: 13px; color: var(--muted); margin: 10px auto 0; }
+.room { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 24px; padding-top: 16px; padding-bottom: 120px; }
+.room-nav { position: sticky; top: 72px; align-self: start; display: flex; flex-direction: column; gap: 2px; }
+.room-nav a { padding: 8px 12px; border-radius: 8px; color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
+.room-nav a:hover { color: var(--text); background: var(--surface-2); }
+.room-nav a[aria-current="page"] { color: var(--accent-contrast); background: var(--accent); }
+#view { min-width: 0; outline: none; }
+#view h1 { font-size: clamp(24px, 3.4vw, 32px); margin-bottom: 6px; }
+#view .intro { color: var(--muted); max-width: 72ch; margin: 0 0 20px; }
+.block { margin: 0 0 22px; }
+.block > h2 { font-size: 19px; margin: 0 0 10px; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+.tabs button { font: inherit; font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; }
+.tabs button[aria-pressed="true"] { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
+
+.banner { border-radius: var(--radius); padding: 14px 18px; font-weight: 700; font-size: 20px; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; }
+.banner small { font-weight: 500; font-size: 15px; }
+.banner.go { background: var(--ok-soft); color: var(--ok); }
+.banner.nogo { background: var(--risk-soft); color: var(--risk); }
+
+.detail { background: var(--surface); border: 1px solid var(--accent); border-radius: var(--radius); padding: 16px; margin-top: 12px; }
+.detail ul { margin: 6px 0 0; padding-left: 18px; font-size: 14px; }
+.detail code { font-size: 13px; }
+
+.slider-row { display: grid; grid-template-columns: minmax(140px, 1fr) minmax(120px, 2fr) 48px; gap: 10px; align-items: center; font-size: 14px; padding: 4px 0; }
+.slider-row input { width: 100%; accent-color: var(--accent); }
+.winner { outline: 2px solid var(--accent); }
+
+.tree { list-style: none; padding-left: 18px; margin: 4px 0; border-left: 1px dashed var(--border); font-size: 14px; }
+.tree.root { padding-left: 0; border-left: none; }
+.tree li { margin: 4px 0; }
+.tree .lot { font-family: var(--mono); font-size: 13px; }
+
+.timeline { display: grid; gap: 6px; }
+.tl-row { display: grid; grid-template-columns: minmax(140px, 240px) 1fr 70px; gap: 10px; align-items: center; font-size: 14px; }
+.tl-track { position: relative; height: 18px; background: var(--surface-2); border-radius: 999px; }
+.tl-mark { position: absolute; top: 3px; width: 12px; height: 12px; border-radius: 50%; transform: translateX(-6px); }
+.tl-mark.plan { background: transparent; border: 2px solid var(--muted); }
+.tl-mark.actual { background: var(--accent); }
+.tl-mark.late { background: var(--warn); }
+
+.heat { display: grid; grid-template-columns: 26px repeat(5, minmax(0, 1fr)); gap: 3px; font-size: 12px; max-width: 520px; }
+.heat .cell { min-height: 48px; border-radius: 6px; padding: 4px; display: flex; flex-wrap: wrap; gap: 3px; align-content: flex-start; }
+.heat .axis { color: var(--muted); display: grid; place-items: center; }
+.heat .cell b { font-size: 11px; background: var(--surface); color: var(--text); border-radius: 4px; padding: 0 4px; }
+
+.stack { display: flex; height: 22px; border-radius: 6px; overflow: hidden; background: var(--surface-2); }
+.stack span { display: block; height: 100%; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--muted); margin-top: 8px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+
+.switch { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; }
+.switch input { accent-color: var(--accent); }
+
+@media (max-width: 760px) {
+  .room { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .room-nav { position: static; flex-direction: row; overflow-x: auto; gap: 4px; padding-bottom: 4px; }
+  .room-nav a { white-space: nowrap; font-size: 14px; }
+  .tl-row { grid-template-columns: 1fr; gap: 2px; }
+  .slider-row { grid-template-columns: 1fr 48px; }
+  .slider-row label { grid-column: 1 / -1; }
+}

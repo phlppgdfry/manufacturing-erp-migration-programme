@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control room — ERP-migratie Vaerdal Foods (portfoliocase)</title>
+  <meta name="description" content="Interactieve control room van een fictief ERP-migratieprogramma: partnerkeuze, fit-gap, datakwaliteit per proefmigratie, go/no-go, budget en RAID.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="room.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../">ERP-migratie · Vaerdal Foods</a>
+    <div class="cta-row">
+      <button class="btn small primary" id="btn-tour" type="button">Rondleiding (2 min)</button>
+      <a class="btn small" href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme">GitHub</a>
+    </div>
+  </div>
+</header>
+<p class="wrap room-disclaimer">Fictieve organisatie · illustratieve cijfers · resultaten na de go-live gesimuleerd · niets draait in een echte Business Central-omgeving</p>
+<div class="wrap room">
+  <nav class="room-nav" aria-label="Onderdelen van het programma">
+    <a href="#overzicht" data-view="overzicht">Overzicht</a>
+    <a href="#partners" data-view="partners">Partnerkeuze</a>
+    <a href="#processen" data-view="processen">Processen</a>
+    <a href="#fitgap" data-view="fitgap">Fit-gap</a>
+    <a href="#migratie" data-view="migratie">Datamigratie</a>
+    <a href="#gonogo" data-view="gonogo">Go/no-go</a>
+    <a href="#budget" data-view="budget">Budget &amp; RAID</a>
+    <a href="#nagolive" data-view="nagolive">Na de go-live</a>
+  </nav>
+  <main id="view" tabindex="-1" aria-live="polite"><p class="muted">Laden…</p></main>
+</div>
+<noscript><p class="wrap">Deze pagina heeft JavaScript nodig. Zonder JavaScript: <a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme/tree/main/docs/screenshots">screenshots van elke stap</a>.</p></noscript>
+<div class="tour hidden" id="tour" role="dialog" aria-label="Rondleiding">
+  <p id="tour-text" aria-live="polite"></p>
+  <div class="tour-actions">
+    <button type="button" data-tour="prev">Terug</button>
+    <button type="button" data-tour="next">Volgende</button>
+    <button type="button" data-tour="close">Sluiten</button>
+  </div>
+</div>
+<script type="module" src="room.js"></script>
+</body>
+</html>

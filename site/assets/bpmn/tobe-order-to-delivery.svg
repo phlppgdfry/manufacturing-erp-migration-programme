@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2830 880" width="2830" height="880" role="img" aria-label="To-be: order tot levering in Business Central" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b4654"/></marker></defs>
+<rect x="0" y="0" width="2830" height="880" fill="#ffffff"/>
+<rect x="30" y="20" width="2780" height="840" fill="none" stroke="#3b4654" stroke-width="1.2"/>
+<text x="48" y="440" font-size="13" font-weight="700" fill="#1b2430" text-anchor="middle" transform="rotate(-90 48 440)">Vaerdal Foods</text>
+<rect x="60" y="20" width="2750" height="140" fill="#ffffff" stroke="#c9d1db"/>
+<text x="76" y="90" font-size="12" fill="#3b4654" text-anchor="middle" transform="rotate(-90 76 90)">Retailer / EDI-provider</text>
+<rect x="60" y="160" width="2750" height="140" fill="#f7f8fa" stroke="#c9d1db"/>
+<text x="76" y="230" font-size="12" fill="#3b4654" text-anchor="middle" transform="rotate(-90 76 230)">Klantendienst</text>
+<rect x="60" y="300" width="2750" height="140" fill="#ffffff" stroke="#c9d1db"/>
+<text x="76" y="370" font-size="12" fill="#3b4654" text-anchor="middle" transform="rotate(-90 76 370)">Planning</text>
+<rect x="60" y="440" width="2750" height="140" fill="#f7f8fa" stroke="#c9d1db"/>
+<text x="76" y="510" font-size="12" fill="#3b4654" text-anchor="middle" transform="rotate(-90 76 510)">Productie</text>
+<rect x="60" y="580" width="2750" height="140" fill="#ffffff" stroke="#c9d1db"/>
+<text x="76" y="650" font-size="12" fill="#3b4654" text-anchor="middle" transform="rotate(-90 76 650)">QA</text>
+<rect x="60" y="720" width="2750" height="140" fill="#f7f8fa" stroke="#c9d1db"/>
+<text x="76" y="790" font-size="12" fill="#3b4654" text-anchor="middle" transform="rotate(-90 76 790)">Magazijn</text>
+<polyline points="203,90 240,90 240,230 277,230" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="393,230 460,230" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="485,205 485,184 577,184" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="491" y="194" font-size="11" fill="#5b6675" text-anchor="start">nee</text>
+<polyline points="510,230 760,230" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="635" y="224" font-size="11" fill="#5b6675" text-anchor="middle">ja</text>
+<polyline points="693,184 785,184 785,205" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="785,255 785,370 877,370" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="993,370 1027,370" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="1143,370 1160,370 1160,510 1177,510" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="1293,510 1327,510" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="1443,510 1460,510 1460,650 1477,650" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="1593,650 1627,650" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="1743,650 1810,650" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="1835,675 1835,696 1967,696" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="1841" y="686" font-size="11" fill="#5b6675" text-anchor="start">nee</text>
+<polyline points="1835,675 1835,790 1927,790" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="1841" y="732" font-size="11" fill="#5b6675" text-anchor="start">ja</text>
+<polyline points="2043,790 2077,790" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="2193,790 2260,790" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="2285,815 2285,849 1985,849 1985,823" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="2291" y="832" font-size="11" fill="#5b6675" text-anchor="start">nee: ander lot</text>
+<polyline points="2310,790 2377,790" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<text x="2344" y="784" font-size="11" fill="#5b6675" text-anchor="middle">ja</text>
+<polyline points="2493,790 2510,790 2510,230 2527,230" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<polyline points="2643,230 2717,230" fill="none" stroke="#3b4654" stroke-width="1.4" marker-end="url(#arr)"/>
+<circle cx="185" cy="90" r="18" fill="#ffffff" stroke="#1b2430" stroke-width="1.4"/>
+<rect x="176" y="84" width="18" height="12" fill="none" stroke="#1b2430"/><polyline points="176,84 185,91 194,84" fill="none" stroke="#1b2430"/>
+<text x="185" y="122" font-size="11" fill="#1b2430" text-anchor="middle">EDI-order</text>
+<rect x="277" y="197" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="287" cy="207" r="5" fill="none" stroke="#5b6675" stroke-width="2.4" stroke-dasharray="2 1.6"/><circle cx="287" cy="207" r="1.6" fill="#5b6675"/>
+<text x="335" y="221" font-size="11" fill="#1b2430" text-anchor="middle">EDI-connector</text>
+<text x="335" y="234" font-size="11" fill="#1b2430" text-anchor="middle">maakt</text>
+<text x="335" y="247" font-size="11" fill="#1b2430" text-anchor="middle">verkooporder</text>
+<circle cx="391" cy="199" r="10" fill="#1f4e79"/><text x="391" y="203" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">A</text>
+<polygon points="485,205 510,230 485,255 460,230" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<text x="485" y="237" font-size="20" fill="#1b2430" text-anchor="middle">×</text>
+<text x="465" y="208" font-size="11" fill="#1b2430" text-anchor="end">Validatie ok?</text>
+<rect x="577" y="151" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="587" cy="159" r="3" fill="none" stroke="#5b6675"/><path d="M582,167 q5,-8 10,0" fill="none" stroke="#5b6675"/>
+<text x="635" y="175" font-size="11" fill="#1b2430" text-anchor="middle">Uitzondering</text>
+<text x="635" y="188" font-size="11" fill="#1b2430" text-anchor="middle">behandelen in</text>
+<text x="635" y="201" font-size="11" fill="#1b2430" text-anchor="middle">werklijst</text>
+<polygon points="785,205 810,230 785,255 760,230" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<text x="785" y="237" font-size="20" fill="#1b2430" text-anchor="middle">×</text>
+<rect x="877" y="337" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="887" cy="347" r="5" fill="none" stroke="#5b6675" stroke-width="2.4" stroke-dasharray="2 1.6"/><circle cx="887" cy="347" r="1.6" fill="#5b6675"/>
+<text x="935" y="368" font-size="11" fill="#1b2430" text-anchor="middle">Planningsvoorstel</text>
+<text x="935" y="380" font-size="11" fill="#1b2430" text-anchor="middle">berekent behoefte</text>
+<circle cx="991" cy="339" r="10" fill="#1f4e79"/><text x="991" y="343" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">B</text>
+<rect x="1027" y="337" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="1037" cy="345" r="3" fill="none" stroke="#5b6675"/><path d="M1032,353 q5,-8 10,0" fill="none" stroke="#5b6675"/>
+<text x="1085" y="354" font-size="11" fill="#1b2430" text-anchor="middle">Planner</text>
+<text x="1085" y="368" font-size="11" fill="#1b2430" text-anchor="middle">controleert</text>
+<text x="1085" y="380" font-size="11" fill="#1b2430" text-anchor="middle">capaciteit en</text>
+<text x="1085" y="394" font-size="11" fill="#1b2430" text-anchor="middle">keurt goed</text>
+<circle cx="1141" cy="339" r="10" fill="#1f4e79"/><text x="1141" y="343" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">B</text>
+<rect x="1177" y="477" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="1187" cy="485" r="3" fill="none" stroke="#5b6675"/><path d="M1182,493 q5,-8 10,0" fill="none" stroke="#5b6675"/>
+<text x="1235" y="501" font-size="11" fill="#1b2430" text-anchor="middle">Grondstoflots</text>
+<text x="1235" y="514" font-size="11" fill="#1b2430" text-anchor="middle">scannen bij</text>
+<text x="1235" y="527" font-size="11" fill="#1b2430" text-anchor="middle">verbruik</text>
+<circle cx="1291" cy="479" r="10" fill="#1f4e79"/><text x="1291" y="483" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">C</text>
+<rect x="1327" y="477" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="1337" cy="487" r="5" fill="none" stroke="#5b6675" stroke-width="2.4" stroke-dasharray="2 1.6"/><circle cx="1337" cy="487" r="1.6" fill="#5b6675"/>
+<text x="1385" y="501" font-size="11" fill="#1b2430" text-anchor="middle">Output: lot +</text>
+<text x="1385" y="514" font-size="11" fill="#1b2430" text-anchor="middle">vervaldatum</text>
+<text x="1385" y="527" font-size="11" fill="#1b2430" text-anchor="middle">automatisch</text>
+<circle cx="1441" cy="479" r="10" fill="#1f4e79"/><text x="1441" y="483" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">C</text>
+<rect x="1477" y="617" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="1487" cy="627" r="5" fill="none" stroke="#5b6675" stroke-width="2.4" stroke-dasharray="2 1.6"/><circle cx="1487" cy="627" r="1.6" fill="#5b6675"/>
+<text x="1535" y="648" font-size="11" fill="#1b2430" text-anchor="middle">Nieuw lot</text>
+<text x="1535" y="660" font-size="11" fill="#1b2430" text-anchor="middle">geblokkeerd</text>
+<circle cx="1591" cy="619" r="10" fill="#1f4e79"/><text x="1591" y="623" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">D</text>
+<rect x="1627" y="617" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="1637" cy="625" r="3" fill="none" stroke="#5b6675"/><path d="M1632,633 q5,-8 10,0" fill="none" stroke="#5b6675"/>
+<text x="1685" y="648" font-size="11" fill="#1b2430" text-anchor="middle">Labo-analyse en</text>
+<text x="1685" y="660" font-size="11" fill="#1b2430" text-anchor="middle">vrijgave lot</text>
+<polygon points="1835,625 1860,650 1835,675 1810,650" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<text x="1835" y="657" font-size="20" fill="#1b2430" text-anchor="middle">×</text>
+<text x="1815" y="628" font-size="11" fill="#1b2430" text-anchor="end">Conform?</text>
+<circle cx="1985" cy="696" r="18" fill="#ffffff" stroke="#1b2430" stroke-width="3.2"/>
+<polyline points="1977,703 1982,689 1988,698 1993,688" fill="none" stroke="#1b2430" stroke-width="1.6"/>
+<text x="1985" y="728" font-size="11" fill="#1b2430" text-anchor="middle">Lot blijft</text>
+<text x="1985" y="740" font-size="11" fill="#1b2430" text-anchor="middle">geblokkeerd</text>
+<rect x="1927" y="757" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="1937" cy="765" r="3" fill="none" stroke="#5b6675"/><path d="M1932,773 q5,-8 10,0" fill="none" stroke="#5b6675"/>
+<text x="1985" y="781" font-size="11" fill="#1b2430" text-anchor="middle">Picken met</text>
+<text x="1985" y="794" font-size="11" fill="#1b2430" text-anchor="middle">scanner volgens</text>
+<text x="1985" y="807" font-size="11" fill="#1b2430" text-anchor="middle">FEFO</text>
+<circle cx="2041" cy="759" r="10" fill="#1f4e79"/><text x="2041" y="763" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">E</text>
+<rect x="2077" y="757" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="2087" cy="767" r="5" fill="none" stroke="#5b6675" stroke-width="2.4" stroke-dasharray="2 1.6"/><circle cx="2087" cy="767" r="1.6" fill="#5b6675"/>
+<text x="2135" y="774" font-size="11" fill="#1b2430" text-anchor="middle">Controle</text>
+<text x="2135" y="788" font-size="11" fill="#1b2430" text-anchor="middle">resterende</text>
+<text x="2135" y="800" font-size="11" fill="#1b2430" text-anchor="middle">houdbaarheid</text>
+<text x="2135" y="814" font-size="11" fill="#1b2430" text-anchor="middle">(VK-05)</text>
+<circle cx="2191" cy="759" r="10" fill="#1f4e79"/><text x="2191" y="763" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">E</text>
+<polygon points="2285,765 2310,790 2285,815 2260,790" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<text x="2285" y="797" font-size="20" fill="#1b2430" text-anchor="middle">×</text>
+<text x="2265" y="768" font-size="11" fill="#1b2430" text-anchor="end">Voldoet?</text>
+<rect x="2377" y="757" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="2387" cy="767" r="5" fill="none" stroke="#5b6675" stroke-width="2.4" stroke-dasharray="2 1.6"/><circle cx="2387" cy="767" r="1.6" fill="#5b6675"/>
+<text x="2435" y="788" font-size="11" fill="#1b2430" text-anchor="middle">SSCC-label +</text>
+<text x="2435" y="800" font-size="11" fill="#1b2430" text-anchor="middle">leverbericht</text>
+<rect x="2527" y="197" width="116" height="66" rx="9" fill="#ffffff" stroke="#1b2430" stroke-width="1.3"/>
+<circle cx="2537" cy="207" r="5" fill="none" stroke="#5b6675" stroke-width="2.4" stroke-dasharray="2 1.6"/><circle cx="2537" cy="207" r="1.6" fill="#5b6675"/>
+<text x="2585" y="228" font-size="11" fill="#1b2430" text-anchor="middle">Factuur via</text>
+<text x="2585" y="240" font-size="11" fill="#1b2430" text-anchor="middle">Peppol of EDI</text>
+<circle cx="2735" cy="230" r="18" fill="#ffffff" stroke="#1b2430" stroke-width="3.2"/>
+<text x="2735" y="262" font-size="11" fill="#1b2430" text-anchor="middle">Gefactureerd</text>
+</svg>

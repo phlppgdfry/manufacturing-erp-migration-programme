@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interviewdeck — ERP-migratie Vaerdal Foods (portfoliocase)</title>
+  <meta name="description" content="Acht slides voor een gesprek van tien minuten over de case. Fictieve organisatie.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    body { background: var(--surface-2); }
+    .slide { aspect-ratio: 16 / 9; max-width: 1000px; margin: 20px auto; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 44px 56px; display: flex; flex-direction: column; overflow: hidden; }
+    .slide h2 { font-size: 32px; margin: 0 0 18px; }
+    .slide .kicker { color: var(--accent); font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 8px; }
+    .slide p, .slide li { font-size: 19px; }
+    .slide ul { padding-left: 22px; margin: 0; }
+    .slide li { margin-bottom: 8px; }
+    .big { font-size: 64px; font-weight: 800; line-height: 1; }
+    .row { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); gap: 16px; margin-top: auto; }
+    .row div { border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+    .row span { display: block; color: var(--muted); font-size: 14px; }
+    .row strong { font-size: 30px; }
+    .foot { margin-top: auto; font-size: 13px; color: var(--muted); }
+    .slide img { max-height: 380px; width: auto; max-width: 100%; object-fit: contain; object-position: left; }
+    .nogo { color: var(--risk); } .go { color: var(--ok); }
+    .no-print { max-width: 1000px; margin: 16px auto 0; padding: 0 16px; }
+    @media (max-width: 700px) { .slide { aspect-ratio: auto; padding: 22px; margin: 12px 0; border-radius: 0; } .slide h2 { font-size: 24px; } .slide p, .slide li { font-size: 16px; } .row { grid-template-columns: 1fr 1fr; } .big { font-size: 44px; } }
+    @page { size: 1280px 720px; margin: 0; }
+    @media print {
+      body { background: #fff; }
+      .slide { width: 1280px; height: 720px; max-width: none; margin: 0; border: none; border-radius: 0; break-after: page; aspect-ratio: auto; padding: 56px 72px; }
+      .slide:last-of-type { break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+<p class="no-print"><a href="../">← Terug naar de case</a> · acht slides, tien minuten · <a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme/raw/main/application-kit/exports/interview-deck.pdf">PDF</a> · <a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme/blob/main/application-kit/presentation/speaker-notes.md">sprekersnotities</a></p>
+
+<section class="slide">
+  <p class="kicker">Portfoliocase · fictieve organisatie</p>
+  <h2 style="font-size:44px">Van SAP naar Business Central bij een voedingsproducent</h2>
+  <p>Een ERP-migratie geleid vanuit de klant: partnerkeuze, fit-gap, datamigratie, go/no-go en uitrol.</p>
+  <p class="foot">Philippe Godfroy · Onafhankelijke portfoliocase over een fictieve organisatie (Vaerdal Foods). Alle cijfers zijn illustratief.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">1 · Het probleem</p>
+  <h2>SAP stopt, de seizoenen niet</h2>
+  <ul>
+    <li>SAP ECC verliest zijn standaardonderhoud; de enige SAP-ontwikkelaar stopt.</li>
+    <li>Planning in Excel, traceerbaarheid op papier, vrijgave per mail.</li>
+    <li>Soep van oktober tot februari, BBQ-sauzen vanaf april: er is geen rustig moment.</li>
+  </ul>
+  <div class="row"><div><span>Medewerkers</span><strong><!--n:org.employees-->185<!--/n--></strong></div><div><span>Recall-oefening vandaag</span><strong><!--n:kpi.K2.baseline-->220<!--/n--> min</strong></div><div><span>Budget</span><strong><!--n:budget.total-->€865.950<!--/n--></strong></div></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">2 · Hoe ik begon</p>
+  <h2>Niet met software, met de partner en het proces</h2>
+  <ul>
+    <li>Criteria en gewichten vastgelegd vóór de offertes; prijs weegt 15%.</li>
+    <li>Elke partner dezelfde demo op ons script, tot en met een recall.</li>
+    <li>Zes workshops, telkens vertrekkend van een echt document van vorige week.</li>
+  </ul>
+  <div class="row"><div><span>Partner A</span><strong><!--n:partner.A.score-->3,75<!--/n--></strong></div><div><span>Partner B</span><strong><!--n:partner.B.score-->3,55<!--/n--></strong></div><div><span>Prijs moet wegen boven</span><strong><!--n:sens.C6.to-->40%<!--/n--></strong></div></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">3 · Wat ik ontwierp</p>
+  <h2>Lots en vervaldatums als ruggengraat</h2>
+  <img src="../assets/bpmn/tobe-order-to-delivery.svg" alt="To-be order tot levering">
+  <p class="foot">Nieuw lot geblokkeerd tot QA vrijgeeft · FEFO-picking · controle op resterende houdbaarheid per retailer · lotnummers ongewijzigd uit SAP</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">4 · Standaard eerst</p>
+  <h2>Van 146 maatwerkobjecten naar 2 extensies</h2>
+  <div class="row" style="--n:4;margin-top:0"><div><span>Eisen</span><strong><!--n:fg.total-->41<!--/n--></strong></div><div><span>Standaard of configuratie</span><strong><!--n:fg.stdConfPct-->74%<!--/n--></strong></div><div><span>Extensies</span><strong><!--n:fg.extensions-->2<!--/n--></strong></div><div><span>Afgewezen CR's</span><strong><!--n:budget.crRejected-->€48.700<!--/n--></strong></div></div>
+  <ul style="margin-top:20px">
+    <li>Elke eis: klasse, oplossing, dagen, beslisser bij het bedrijf, UAT-scenario.</li>
+    <li>Extensies gaan altijd naar de stuurgroep: houdbaarheid per klant en allergenen, beide verplicht.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">5 · De datamigratie</p>
+  <h2>Zelfde aantal fouten, andere lots</h2>
+  <ul>
+    <li><!--n:dq.rules-->15<!--/n--> kwaliteitsregels, elk met een eigenaar in de business; vier proefmigraties.</li>
+    <li>Generale repetitie: <!--n:mock3.DQ-10-->107<!--/n--> lots halffabricaat zonder vervaldatum, allemaal nieuw.</li>
+    <li>Oorzaak: een eigen SAP-transactie. Opschonen zonder de bron te herstellen is dweilen met de kraan open.</li>
+  </ul>
+  <div class="row"><div><span>Mock recall</span><strong class="nogo"><!--n:mock3.recall-->96,7%<!--/n--></strong></div><div><span>Blokkerende fouten</span><strong class="nogo"><!--n:mock3.blocking-->107<!--/n--></strong></div><div><span>Voorraadverschil</span><strong class="nogo"><!--n:mock3.stockDiffPct-->2,131%<!--/n--></strong></div></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">6 · De beslissing</p>
+  <h2>No-go op 1 maart, go op 1 april</h2>
+  <ul>
+    <li>Criteria vastgelegd in week 16; een hard criterium wordt niet kwijtgescholden.</li>
+    <li>Vier opties met kost en risico op één pagina; advies: vier weken uitstel.</li>
+    <li>De stuurgroep besliste. Kost <!--n:budget.delay-->€55.700<!--/n--> uit de reserve, <!--n:budget.left-->€23.550<!--/n--> bleef over.</li>
+  </ul>
+  <div class="row"><div><span>Go/no-go 1 · W25</span><strong class="nogo"><!--n:gng1.decision-->NO-GO<!--/n--></strong></div><div><span>Go/no-go 2 · W29</span><strong class="go"><!--n:gng2.decision-->GO<!--/n--></strong></div><div><span>Recall na herstel</span><strong class="go"><!--n:mock4.recall-->100,0%<!--/n--></strong></div></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">7 · Wat dit zegt over mij</p>
+  <h2>Ik bescherm de go-live, niet de datum</h2>
+  <ul>
+    <li>Ik werk vanuit de business: proceseigenaars beslissen, key users testen hun eigen werk.</li>
+    <li>Ik stuur een partner met afspraken die op voorhand vastliggen: acceptatie, change, reserve.</li>
+    <li>Ik maak slecht nieuws concreet: welke oorzaak, welke opties, wat het kost.</li>
+  </ul>
+  <p class="foot">Case, control room met rondleiding, code en geautomatiseerde testen: phlppgdfry.github.io/manufacturing-erp-migration-programme · niets draait in een echte Business Central-omgeving; resultaten zijn gesimuleerd.</p>
+</section>
+</body>
+</html>

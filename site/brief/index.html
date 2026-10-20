@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Executive brief — ERP-migratie Vaerdal Foods (portfoliocase)</title>
+  <meta name="description" content="Twee pagina's: probleem, aanpak, beslissingen, de go/no-go en wat de case aantoont. Onafhankelijke portfoliocase, fictieve organisatie.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    body { font-size: 15px; }
+    .page { max-width: 820px; margin: 24px auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 40px; }
+    .page + .page { margin-top: 24px; }
+    h1 { font-size: 30px; margin-bottom: 6px; }
+    h2 { font-size: 17px; margin: 18px 0 6px; color: var(--accent); text-transform: uppercase; letter-spacing: .04em; }
+    p, li { margin: 0 0 6px; }
+    ul { padding-left: 18px; margin: 0; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; font-size: 12.5px; }
+    .steps div { background: var(--surface-2); border-radius: 8px; padding: 8px; }
+    .steps b { display: block; color: var(--accent); }
+    .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .tiles div { border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; }
+    .tiles strong { display: block; font-size: 22px; }
+    .tiles span { font-size: 12px; color: var(--muted); }
+    table { font-size: 13px; }
+    th, td { padding: 5px 8px; }
+    .foot { font-size: 12px; color: var(--muted); margin-top: 14px; }
+    .no-print { max-width: 820px; margin: 16px auto 0; padding: 0 16px; }
+    @media (max-width: 700px) { .page { padding: 20px 16px; margin: 12px 0; border-radius: 0; } .two, .tiles { grid-template-columns: 1fr 1fr; } .steps { grid-template-columns: repeat(2, 1fr); } }
+    @page { size: A4; margin: 12mm 14mm; }
+    @media print {
+      body { background: #fff; font-size: 10pt; }
+      .page { border: none; margin: 0; padding: 0; max-width: none; break-after: page; }
+      .page:last-of-type { break-after: auto; }
+      h2 { color: #1d5c57; }
+      .steps div { background: #eef1ee; }
+    }
+  </style>
+</head>
+<body>
+<p class="no-print"><a href="../">← Terug naar de case</a> · <a href="https://github.com/phlppgdfry/manufacturing-erp-migration-programme/raw/main/application-kit/exports/executive-brief.pdf">PDF</a></p>
+
+<section class="page">
+  <p class="eyebrow">Executive brief · portfoliocase · Philippe Godfroy</p>
+  <h1>Van SAP naar Business Central bij een voedingsproducent</h1>
+  <p class="muted">Een ERP-migratie geleid vanuit de klant: partnerkeuze, fit-gap, datamigratie, test, go/no-go en uitrol.</p>
+  <p class="disclaimer">Onafhankelijke portfoliocase over een fictieve organisatie (Vaerdal Foods). Geen vertrouwelijke informatie van een echte werkgever, klant of leverancier. Alle cijfers zijn illustratieve aannames; resultaten na de go-live zijn gesimuleerd.</p>
+
+  <h2>De uitdaging</h2>
+  <p>Vaerdal Foods (<!--n:org.employees-->185<!--/n--> medewerkers) maakt gekoelde sauzen en soepen voor supermarkten in België, Nederland en Frankrijk. SAP ECC verliest zijn standaardonderhoud en de enige SAP-ontwikkelaar stopt. De raad van bestuur koos Microsoft Dynamics 365 Business Central. Planning draait in Excel, traceerbaarheid op papier, kwaliteitsvrijgave via mail; een recall-oefening duurt <!--n:kpi.K2.baseline-->220<!--/n--> minuten. Er zijn twee seizoenen en geen enkel rustig moment.</p>
+
+  <h2>Mijn rol</h2>
+  <p>IT-projectmanager en business analist aan de kant van het bedrijf, rapporteert aan de IT Manager. Ik koos mee de partner, leidde de workshops, maakte de fit-gap, bewaakte planning, budget en kwaliteit van partner en leveranciers, organiseerde datakwaliteit, testen en opleiding met finance en productie, en bereidde de go/no-go voor. Configureren deed de partner; beslissen de stuurgroep.</p>
+
+  <h2>Het traject</h2>
+  <div class="steps">
+    <div><b>1 Partner</b>criteria vóór de offertes, demoscript, contract met acceptatie</div>
+    <div><b>2 Processen</b>6 workshops, as-is → to-be in BPMN</div>
+    <div><b>3 Fit-gap</b><!--n:fg.total-->41<!--/n--> eisen, <!--n:fg.stdConfPct-->74%<!--/n--> standaard of configuratie</div>
+    <div><b>4 Migratie</b><!--n:dq.rules-->15<!--/n--> kwaliteitsregels, 4 proefmigraties</div>
+    <div><b>5 Go/no-go</b>12 criteria, vastgelegd in W16</div>
+    <div><b>6 Na go-live</b>hypercare, baten, IT-roadmap</div>
+  </div>
+
+  <h2>Drie keuzes</h2>
+  <div class="two">
+    <div>
+      <p><b>Gewichten vóór de offertes.</b> Prijs weegt 15%. Partner A wint, en blijft winnen tot prijs meer dan <!--n:sens.C6.to-->40%<!--/n--> weegt. Contract: vaste prijs per mijlpaal na aftekening, migratie in regie met plafond, 10% inhouding tot einde hypercare.</p>
+      <p><b>Standaard eerst.</b> Van 146 SAP-maatwerkobjecten bleven <!--n:fg.extensions-->2<!--/n--> extensies over, beide wettelijk of contractueel. Elke extensie gaat naar de stuurgroep. Het grafische planbord (€41.800) werd afgewezen.</p>
+    </div>
+    <div>
+      <p><b>Lotnummers ongewijzigd, geen historiek.</b> Openstaande posten, saldi en lots migreren; de SAP-historiek gaat naar een read-only archief voor tien jaar. Omdat lotnummers gelijk blijven, loopt een recall naadloos van Business Central naar het archief.</p>
+      <p><b>Criteria vóór de cijfers.</b> Acht harde en vier zachte go/no-go-criteria, vastgelegd voor er resultaten waren. Een hard criterium wordt op de dag zelf niet kwijtgescholden.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <h2>De beslissing: geen go-live op 1 maart</h2>
+  <p>In de generale repetitie hadden <!--n:mock3.DQ-10-->107<!--/n--> lots halffabricaat geen vervaldatum, allemaal uit Hal 2 en allemaal nieuw ten opzichte van de vorige proefmigratie. Een eigen SAP-transactie sloeg het veld over: opschonen zonder de bron te herstellen hielp niet. Drie harde criteria faalden op die ene oorzaak.</p>
+  <div class="tiles">
+    <div><span>Mock recall</span><strong><!--n:mock3.recall-->96,7%<!--/n--></strong><span>criterium 100%</span></div>
+    <div><span>Blokkerende fouten</span><strong><!--n:mock3.blocking-->107<!--/n--></strong><span>criterium 0</span></div>
+    <div><span>Voorraadverschil</span><strong><!--n:mock3.stockDiffPct-->2,131%<!--/n--></strong><span>criterium ≤ 0,1%</span></div>
+    <div><span>Kost van 4 weken uitstel</span><strong><!--n:budget.delay-->€55.700<!--/n--></strong><span>uit de reserve</span></div>
+  </div>
+  <p style="margin-top:10px">Mijn voorstel aan de stuurgroep, op één pagina: vier opties met kost en risico. Toch live en met de hand bijwerken (✗: een week niet traceerbaar, audit in mei); live zonder halffabricaten (✗: twee systemen); <b>vier weken uitstel met eerst de bron hersteld (✓)</b>; uitstel tot september (✗: ±€190.000). De stuurgroep koos uitstel. Vier weken later: recall <!--n:mock4.recall-->100,0%<!--/n-->, nul blokkerende fouten, <!--n:gng2.decision-->GO<!--/n--> voor 1 april.</p>
+
+  <h2>Resultaat <span class="chip neutral">gesimuleerd</span></h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>KPI</th><th class="num">Vóór</th><th class="num">Doel</th><th class="num">+3 maanden</th></tr></thead>
+    <tbody>
+      <tr><td>Mock recall (minuten)</td><td class="num"><!--n:kpi.K2.baseline-->220<!--/n--></td><td class="num"><!--n:kpi.K2.target-->60<!--/n--></td><td class="num"><b><!--n:kpi.K2.measured-->42<!--/n--></b></td></tr>
+      <tr><td>Maandafsluiting (werkdagen)</td><td class="num"><!--n:kpi.K1.baseline-->9<!--/n--></td><td class="num"><!--n:kpi.K1.target-->5<!--/n--></td><td class="num"><b><!--n:kpi.K1.measured-->6<!--/n--></b></td></tr>
+      <tr><td>Weekplanning (uur)</td><td class="num"><!--n:kpi.K3.baseline-->11<!--/n--></td><td class="num"><!--n:kpi.K3.target-->4<!--/n--></td><td class="num"><b><!--n:kpi.K3.measured-->5<!--/n--></b></td></tr>
+      <tr><td>Budget</td><td class="num" colspan="2"><!--n:budget.total-->€865.950<!--/n--> toegekend</td><td class="num"><b><!--n:budget.eac-->€842.400<!--/n--></b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="margin-top:6px">Eén van zes KPI-doelen gehaald na drie maanden, vijf op weg, elk met een eigenaar en een actie.</p>
+
+  <h2>Wat dit aantoont</h2>
+  <div class="table-wrap"><table>
+    <tbody>
+      <tr><td>Een ERP-migratie leiden van analyse tot uitrol</td><td>charter, planning, 4 proefmigraties, cutover, go/no-go, hypercare</td></tr>
+      <tr><td>Processen vertalen naar een IT-oplossing</td><td>workshops, BPMN as-is/to-be, fit-gap met een beslisser per regel</td></tr>
+      <tr><td>Partner en leveranciers aansturen</td><td>selectie met gevoeligheid, acceptatie per mijlpaal, change requests, reserve</td></tr>
+      <tr><td>Workshops en testen met finance en productie</td><td><!--n:uat.scenarios-->17<!--/n--> UAT-scenario's door key users, opleiding in drie golven</td></tr>
+      <tr><td>Productie en supply chain begrijpen</td><td>recepturen, lots, houdbaarheid, FEFO, recall, seizoenen</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Wat de case niet is</h2>
+  <p>Niets draait in een echte Business Central-omgeving: de migratie zet gegenereerde SAP-extracten om, stemt af en traceert, maar laadt niets. Partners, budget en resultaten zijn illustratief. Elk getal komt uit één model en wordt in CI vergeleken met de documenten.</p>
+  <p class="foot">Case, control room met rondleiding van 2 minuten, code en testen: phlppgdfry.github.io/manufacturing-erp-migration-programme · github.com/phlppgdfry/manufacturing-erp-migration-programme</p>
+</section>
+</body>
+</html>
