@@ -1,0 +1,64 @@
+# Fit-gap-register
+
+> Gegenereerd door `scripts/build.py` uit `data/programme.json` en de SAP-extracten. Niet met de hand aanpassen.
+
+Terug naar [de methode](README.md). Elke regel: wat de business nodig heeft, hoe Business Central het oplost, hoeveel bouwwerk de partner rekent, wie beslist en welk UAT-scenario het bewijst.
+
+## Samenvatting
+
+| Klasse | Aantal | Partnerdagen bouw |
+|---|---|---|
+| Standaard | 19 | 38 |
+| Configuratie | 7 | 21 |
+| ISV-app | 5 | 20 |
+| Procesaanpassing | 2 | 8 |
+| Extensie | 2 | 9 |
+| Buiten scope | 6 | 0 |
+
+35 van de 41 eisen zitten in scope; 26 daarvan (74%) lossen we op met standaard of configuratie. Twee extensies, beide met een wettelijke of contractuele reden.
+
+## Register
+
+| ID | Domein | Eis | MoSCoW | Klasse | Oplossing | Dagen | Beslist door | Test |
+|---|---|---|---|---|---|---|---|---|
+| FIN-01 | Financiën | Grootboek op het Belgische rekeningstelsel met dimensies kostenplaats, productlijn en klantkanaal | Must | **Configuratie** | Rekeningschema + 3 globale dimensies | 3 | CFO | UAT-11 |
+| FIN-02 | Financiën | Btw voor België, Nederland en Frankrijk inclusief intracommunautaire leveringen en de Belgische btw-aangifte | Must | **Standaard** | Belgische lokalisatie, btw-boekingsinstellingen | 2 | CFO | UAT-11 |
+| FIN-03 | Financiën | Peppol-e-facturatie voor Belgische B2B-klanten | Must | **Configuratie** | E-documenten + Peppol-access point | 3 | CFO | UAT-08 |
+| FIN-04 | Financiën | CODA-bankafschriften inlezen en SEPA-betalingen aanmaken | Must | **Standaard** | Belgische lokalisatie (CODA, SEPA) | 1,5 | CFO | UAT-12 |
+| FIN-05 | Financiën | Intrastat-aangifte | Must | **Standaard** | Intrastat-rapportering | 1 | CFO | UAT-13 |
+| FIN-06 | Financiën | Vaste activa met lineaire afschrijving | Must | **Standaard** | Vaste activa | 1,5 | CFO | UAT-13 |
+| FIN-07 | Financiën | Maandafsluiting in vijf werkdagen in plaats van negen | Should | **Procesaanpassing** | Afsluitkalender, terugkerende dagboeken, voorraadwaardering dagelijks | 2 | CFO | UAT-14 |
+| FIN-08 | Financiën | Standaardkostprijs per eindproduct met afwijkingsanalyse per productieorder | Must | **Standaard** | Kostprijsmethode Standaard, kostprijsberekening uit stuklijst en routing | 4 | Controller | UAT-06 |
+| FIN-09 | Financiën | Marge per retailer en per productlijn | Should | **Configuratie** | Dimensies + Power BI-rapport | 3 | Controller | UAT-14 |
+| VK-01 | Verkoop | EDI-orders van zes retailers komen automatisch binnen als verkooporder | Must | **ISV-app** | EDI-connector-app + mapping per retailer bij de EDI-provider | 6 | Teamleider klantendienst | UAT-01 |
+| VK-02 | Verkoop | Leverbericht (DESADV) met SSCC per pallet | Must | **ISV-app** | EDI-connector + labelsoftware | 5 | Teamleider klantendienst | UAT-07 |
+| VK-03 | Verkoop | EDI-factuur (INVOIC) voor retailers die geen Peppol gebruiken | Must | **ISV-app** | EDI-connector | 2 | Teamleider klantendienst | UAT-08 |
+| VK-04 | Verkoop | Prijsafspraken per retailer en promotiekortingen per periode | Must | **Standaard** | Prijslijsten met start- en einddatum | 3 | Commercieel directeur | UAT-01 |
+| VK-05 | Verkoop | Minimale resterende houdbaarheid per klant bewaken bij picking (bv. twee derde van de houdbaarheid) | Must | **Extensie** | Kleine extensie: controle bij toewijzen van lots aan een verkooporder | 5 | QA-manager | UAT-04 |
+| VK-06 | Verkoop | Kredietlimiet en orderblokkering | Must | **Standaard** | Kredietlimietcontrole | 0,5 | CFO | UAT-01 |
+| VK-07 | Verkoop | Retouren met lotregistratie | Should | **Standaard** | Retourorders met artikeltracering | 1,5 | Teamleider klantendienst | UAT-09 |
+| AK-01 | Aankoop | Bestellingen vanuit het planningsvoorstel | Must | **Standaard** | Planningsvoorstel → aankooporders | 2 | Aankoper | UAT-02 |
+| AK-02 | Aankoop | Goedkeuring van bestellingen boven €10.000 | Must | **Configuratie** | Goedkeuringsworkflow aankoop | 1 | CFO | UAT-10 |
+| AK-03 | Aankoop | Ontvangst van grondstoffen met leverancierslot en vervaldatum | Must | **Standaard** | Artikeltracering met lot en vervaldatum | 1,5 | Magazijnverantwoordelijke | UAT-03 |
+| AK-04 | Aankoop | Leveranciersbeoordeling op tijdigheid en kwaliteit | Could | **Buiten scope** | Fase 2: Power BI op ontvangsten en blokkeringen | 0 | Aankoper | — |
+| AK-05 | Aankoop | Raamcontracten voor grondstoffen | Should | **Standaard** | Raamorders | 1 | Aankoper | UAT-02 |
+| PR-01 | Productie | Recepturen als productiestuklijsten met versies en uitval | Must | **Standaard** | Productiestuklijsten met versies, uitvalpercentage (Premium) | 5 | Plantmanager | UAT-05 |
+| PR-02 | Productie | Routings per lijn in Hal 1 en Hal 2 | Must | **Standaard** | Routings, afdelingen en machinecentra | 4 | Plantmanager | UAT-05 |
+| PR-03 | Productie | Weekplanning met het planningsvoorstel in plaats van het Excel-planbord | Must | **Procesaanpassing** | Planningsvoorstel (MRP) + Power BI-capaciteitsoverzicht per lijn | 6 | Plantmanager | UAT-02 |
+| PR-04 | Productie | Grafisch planbord met slepen zoals in Excel | Could | **Buiten scope** | Afgewezen in CR-03; mogelijke app in fase 2 | 0 | Plantmanager | — |
+| PR-05 | Productie | Output boeken met lotnummer en een vervaldatum berekend uit productiedatum en houdbaarheid | Must | **Standaard** | Artikeltraceringscode met verplichte vervaldatum, houdbaarheid per artikel | 3 | QA-manager | UAT-05 |
+| PR-06 | Productie | Grondstoffen verbruiken per lot; verpakking automatisch afboeken | Must | **Standaard** | Verbruiksmethode Handmatig (grondstof) en Achterwaarts (verpakking) | 1,5 | Plantmanager | UAT-05 |
+| PR-07 | Productie | Gewichten van de controleweegschalen automatisch als output | Could | **Buiten scope** | Fase 2 (ADR-007): koppeling via API | 0 | Plantmanager | — |
+| PR-08 | Productie | Elektronisch batchrecord met CCP-registraties | Should | **Buiten scope** | Fase 2; papier blijft, met lotnummer uit Business Central | 0 | QA-manager | — |
+| KW-01 | Kwaliteit | Nieuwe lots zijn geblokkeerd tot QA ze vrijgeeft | Must | **Standaard** | Lotnummerinformatie Geblokkeerd + vrijgaveprocedure (ADR-005) | 2 | QA-manager | UAT-05 |
+| KW-02 | Kwaliteit | Traceren voorwaarts en achterwaarts binnen vier uur | Must | **Standaard** | Artikeltracering + archief voor de SAP-periode (ADR-003) | 1 | QA-manager | UAT-15 |
+| KW-03 | Kwaliteit | Allergenen per grondstof, automatisch doorgerekend naar het eindproduct | Must | **Extensie** | Artikelkenmerken + kleine extensie die allergenen uit de stuklijst optelt | 4 | QA-manager | UAT-16 |
+| KW-04 | Kwaliteit | FEFO bij picking: eerst wat het eerst vervalt | Must | **Standaard** | Locatie-instelling Picken volgens FEFO | 1 | Magazijnverantwoordelijke | UAT-04 |
+| KW-05 | Kwaliteit | Laboresultaten per lot registreren | Should | **Buiten scope** | Fase 2: kwaliteitsapp; fase 1 blijft de labo-Excel met lotnummer | 0 | QA-manager | — |
+| VR-01 | Voorraad | Extern koelhuis als locatie met dagelijkse voorraadmelding | Must | **Configuratie** | Locatie KOEL + dagelijkse afstemming via standaard-API | 3 | Magazijnverantwoordelijke | UAT-17 |
+| VR-02 | Voorraad | Scanners voor ontvangst en picking | Should | **ISV-app** | Magazijnscanapp | 4 | Magazijnverantwoordelijke | UAT-03, UAT-04 |
+| VR-03 | Voorraad | Cyclische telling per zone | Should | **Standaard** | Fysieke voorraadorders per telperiode | 1 | Magazijnverantwoordelijke | UAT-17 |
+| VR-04 | Voorraad | GS1-128-labels voor halffabricaten en paletten | Must | **ISV-app** | Labelapp met koppeling naar de labelprinters | 3 | Magazijnverantwoordelijke | UAT-07 |
+| IT-01 | IT en rapportering | Rollen en rechten met functiescheiding (bestellen ≠ betalen) | Must | **Configuratie** | Machtigingensets per rol, functiescheidingsmatrix | 2 | IT Manager | UAT-10 |
+| IT-02 | IT en rapportering | De 14 Power BI-rapporten werken op Business Central | Should | **Configuratie** | Power BI-connector voor Business Central | 6 | Controller | UAT-14 |
+| IT-03 | IT en rapportering | SAP-gegevens tien jaar raadplegen (wettelijke bewaartermijn) | Must | **Buiten scope** | Read-only archief buiten Business Central (ADR-003, eigen budgetlijn) | 0 | CFO | — |
