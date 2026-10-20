@@ -244,6 +244,7 @@ function current() {
 }
 
 function render() {
+  if (!M) return; // navigation before the model has loaded: the first render follows the fetch
   const name = current();
   view.innerHTML = views[name]();
   document.querySelectorAll(".room-nav a").forEach((a) => {
